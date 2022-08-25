@@ -1,13 +1,15 @@
 import NavBar from "./Components/NavBar/NavBar";
 import AirPodsIntroduction from "./Components/ContentPage/AirPodsIntroduction";
+import MessageTitle from "../UI/MessageTitle";
 
-const App = () => {
+function App() {
   return (
     <div>
       <NavBar />
-      <AirPodsIntroduction/>
+      <AirPodsIntroduction />
+      <MessageTitle>A magical connection to<br/> your devices.</MessageTitle>
     </div>
   );
-};
+}
 
 export default App;

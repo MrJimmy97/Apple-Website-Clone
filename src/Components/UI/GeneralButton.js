@@ -18,13 +18,13 @@ const NoSelected = styled.span`
   -webkit-user-select: none;
 `;
 
-const GeneralButton = (props) => {
+function GeneralButton(props) {
   return (
     <LearnMoreButton className={props.className}>
       <Label>{props.children}</Label>
       <NoSelected>{" >"}</NoSelected>
     </LearnMoreButton>
   );
-};
+}
 
 export default GeneralButton;

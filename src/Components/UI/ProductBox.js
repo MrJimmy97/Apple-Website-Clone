@@ -25,7 +25,9 @@ const Product = styled.div`
   & > img {
     position: absolute;
   }
-  & > div,h2,h3 {
+  & > div,
+  h2,
+  h3 {
     position: relative;
     color: white;
   }
@@ -52,7 +54,7 @@ const ProductButtonBox = styled.span`
   }
 `;
 
-const ProductBox = (props) => {
+function ProductBox(props) {
   return (
     <Product>
       {props.children}
@@ -62,6 +64,6 @@ const ProductBox = (props) => {
       </ProductButtonBox>
     </Product>
   );
-};
+}
 
 export default ProductBox;

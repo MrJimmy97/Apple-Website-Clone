@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useRef,useState } from "react";
+import { useRef, useState } from "react";
 import ProductBox from "../UI/ProductBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-regular-svg-icons";
@@ -99,22 +99,19 @@ const AirPods2ndRight = styled.img`
   left: 56%;
 `;
 
-const AirPodsIntroduction = () => {
-  const [currentState, setState] = useState(true)
-  
+function AirPodsIntroduction() {
+  const [isPlay, setPlayPause] = useState(true);
+  const [playPauseIcon, setPlayPauseIcon] = useState(faCirclePause);
   const videoRef = useRef();
   const PlayPauseHandler = () => {
-    if (currentState) {
+    if (isPlay) {
       videoRef.current.pause();
-      playPauseIcon = <FontAwesomeIcon icon={faCirclePlay} />;
-      console.log(playPauseIcon);
-      setState(false);
-    } else  {
+      setPlayPauseIcon(faCirclePlay);
+    } else {
       videoRef.current.play();
-      playPauseIcon = <FontAwesomeIcon icon={faCirclePause} />;
-      console.log(playPauseIcon);
-      setState(true)
+      setPlayPauseIcon(faCirclePause);
     }
+    setPlayPause((cur) => !cur);
   };
   return (
     <Container>
@@ -127,7 +124,9 @@ const AirPodsIntroduction = () => {
           <h3>3rd generation</h3>
           <div>HK$1,499</div>
         </Airpods3rdBoxContent>
-        <PlayButton onClick={PlayPauseHandler}><FontAwesomeIcon icon={faCirclePause} /></PlayButton>
+        <PlayButton onClick={PlayPauseHandler}>
+          <FontAwesomeIcon icon={playPauseIcon} />
+        </PlayButton>
       </ProductBox>
       <ProductBox>
         <AirPodsProLeft

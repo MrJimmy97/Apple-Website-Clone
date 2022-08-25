@@ -1,7 +1,7 @@
 import MainNavBar from "./MainNavBar"
 import NavMessage from "./NavMessage"
 import ProductBar from './ProductBar.js'
-const NavBar =() =>{
+function NavBar() {
 return (
     <div>
         <MainNavBar/>

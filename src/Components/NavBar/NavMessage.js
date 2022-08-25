@@ -38,7 +38,7 @@ const Message = styled.p`
   }
 `;
 
-const NavMessage = () => {
+function NavMessage() {
   return (
     <Message>
       Get 6 months of Apple Music free with your AirPods.*

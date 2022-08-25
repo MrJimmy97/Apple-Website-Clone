@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
@@ -28,11 +28,11 @@ const NavBarbutton = styled.button`
   }
 `;
 
-const MainNavBar = () => {
+function MainNavBar(){
   return (
     <NavBar>
       <NavBarbutton>
-        <FontAwesomeIcon style={{fontSize:'medium'}} icon={faAppleWhole} />
+        <FontAwesomeIcon style={{fontSize:'15px'}} icon={faAppleWhole} />
       </NavBarbutton>
       <NavBarbutton>Store</NavBarbutton>
       <NavBarbutton>Mac</NavBarbutton>
@@ -45,10 +45,10 @@ const MainNavBar = () => {
       <NavBarbutton>Accessories</NavBarbutton>
       <NavBarbutton>Support</NavBarbutton>
       <NavBarbutton>
-        <FontAwesomeIcon style={{fontSize:'medium'}} icon={faMagnifyingGlass} />
+        <FontAwesomeIcon style={{fontSize:'15px'}} icon={faMagnifyingGlass} />
       </NavBarbutton>
       <NavBarbutton>
-        <FontAwesomeIcon style={{fontSize:'medium'}} icon={faShoppingBag} />
+        <FontAwesomeIcon style={{fontSize:'15px'}} icon={faShoppingBag} />
       </NavBarbutton>
     </NavBar>
   );

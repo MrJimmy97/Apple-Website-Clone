@@ -61,7 +61,7 @@ const ProductBarButton = styled.button`
     }
   }
 `;
-const ProductBar = () => {
+function ProductBar() {
   return (
     <NavBar>
       <ProductBarButton>
