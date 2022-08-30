@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import GeneralButton from "./GeneralButton";
+import GeneralButton from "../UI/GeneralButton";
 
 const Product = styled.div`
   width: 96%;
@@ -11,17 +11,9 @@ const Product = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   background-color: black;
 
-  & > video {
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
   & > img {
     position: absolute;
   }
@@ -33,8 +25,9 @@ const Product = styled.div`
   }
 `;
 const ProductButtonBox = styled.span`
-  position: relative;
-  padding-bottom: 40px;
+  position: absolute;
+  top:88%;
+  left: calc(50%-113px);
 
   .buyButton {
     background-color: white;
@@ -44,8 +37,6 @@ const ProductButtonBox = styled.span`
     font-size: 20px;
     padding: 12px 22px;
     margin-right: 20px;
-  }
-  .buyButton:hover {
     cursor: pointer;
   }
   .learnMoreButton {
@@ -54,7 +45,7 @@ const ProductButtonBox = styled.span`
   }
 `;
 
-function ProductBox(props) {
+function AirPodsBox(props) {
   return (
     <Product>
       {props.children}
@@ -66,4 +57,4 @@ function ProductBox(props) {
   );
 }
 
-export default ProductBox;
+export default AirPodsBox;

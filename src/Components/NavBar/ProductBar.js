@@ -65,7 +65,7 @@ function ProductBar() {
   return (
     <NavBar>
       <ProductBarButton>
-        <img className="AirPods2nd" src="/AirPods_2nd.png" alt="AirPods2nd" />
+        <img className="AirPods2nd" src="/NavBar/AirPods_2nd.png" alt="AirPods2nd" />
         <div>
           AirPods
           <br />
@@ -73,26 +73,26 @@ function ProductBar() {
         </div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="AirPods3rd" src="/AirPods_3rd.png" alt="AirPods3nd" />
+        <img className="AirPods3rd" src="/NavBar/AirPods_3rd.png" alt="AirPods3nd" />
         <div>
           AirPods <br />
           3rd Generation
         </div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="AirPodsPro" src="/AirPodsPro.png" alt="AirPodsPro" />
+        <img className="AirPodsPro" src="/NavBar/AirPodsPro.png" alt="AirPodsPro" />
         <div>AirPods Pro</div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="AirPodsMax" src="/AirPodsMax.png" alt="AirPodsMax" />
+        <img className="AirPodsMax" src="/NavBar/AirPodsMax.png" alt="AirPodsMax" />
         <div>AirPods Max</div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="Compare" src="/Compare.png" alt="Compare" />
+        <img className="Compare" src="/NavBar/Compare.png" alt="Compare" />
         <div>Compare</div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="AppleMusic" src="/AppleMusic.png" alt="AppleMusic" />
+        <img className="AppleMusic" src="/NavBar/AppleMusic.png" alt="AppleMusic" />
         <div>Apple Music</div>
       </ProductBarButton>
     </NavBar>

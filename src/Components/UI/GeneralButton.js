@@ -14,8 +14,8 @@ const Label = styled.span`
   }
 `;
 const NoSelected = styled.span`
-  user-select: none;
-  -webkit-user-select: none;
+  user-select: none; /* Chrome */
+  -webkit-user-select: none;/* Safari */
 `;
 
 function GeneralButton(props) {

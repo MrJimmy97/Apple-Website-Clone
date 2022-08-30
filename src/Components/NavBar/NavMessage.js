@@ -8,7 +8,6 @@ const Message = styled.p`
   padding: 12px 0;
   margin:0;
   position: relative;
-  overflow:hidden;
   color: rgb(90, 90, 90);
   animation: top-to-bottom 2s;
 
@@ -26,11 +25,9 @@ const Message = styled.p`
     66%{
       color:white;
       background-color: rgb(8,116,228);
-      transform: translateY(0px);
       z-index: 0;
     }
     100% {
-      transform: translateY(0px);
       color: rgb(90, 90, 90);
       background-color: transparent;
       z-index: 0;

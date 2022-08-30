@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const Title = styled.div`
   text-align: center;
-  font-size: 40px;
+  font-size: 62px;
   font-weight: bold;
-  padding-top: 60px;
-  padding-bottom: 20px;
+  padding-top: 120px;
+  padding-bottom: 40px;
 `;
 
 function MessageTitle(props) {

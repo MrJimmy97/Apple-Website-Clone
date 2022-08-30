@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { useRef, useState } from "react";
-import ProductBox from "../UI/ProductBox";
+import AirPodsBox from "./AirPodsBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlay } from "@fortawesome/free-regular-svg-icons";
-import { faCirclePause } from "@fortawesome/free-regular-svg-icons";
+import { faCirclePlay,faCirclePause } from "@fortawesome/free-regular-svg-icons";
 
 const Container = styled.div`
   background: linear-gradient(white 30%, transparent 70%);
@@ -12,11 +11,20 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+const VideoBackground = styled.video`
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;`
+
 const Airpods3rdBoxContent = styled.div`
   margin-bottom: 16px;
   text-align: center;
   & > h2 {
-    margin: 0 0 4px 0;
+    margin: 300px 0 4px 0;
     font-size: 120px;
   }
   & > h3 {
@@ -35,6 +43,7 @@ const PlayButton = styled.button`
   color: rgb(216, 216, 216);
   bottom: 30px;
   left: 94%;
+  cursor: pointer;
   &:hover {
     color: white;
   }
@@ -101,62 +110,59 @@ const AirPods2ndRight = styled.img`
 
 function AirPodsIntroduction() {
   const [isPlay, setPlayPause] = useState(true);
-  const [playPauseIcon, setPlayPauseIcon] = useState(faCirclePause);
   const videoRef = useRef();
   const PlayPauseHandler = () => {
     if (isPlay) {
       videoRef.current.pause();
-      setPlayPauseIcon(faCirclePlay);
     } else {
       videoRef.current.play();
-      setPlayPauseIcon(faCirclePause);
     }
     setPlayPause((cur) => !cur);
   };
   return (
     <Container>
-      <ProductBox>
-        <video ref={videoRef} autoPlay muted loop>
-          <source src="/large_2x.mp4" type="video/mp4" />
-        </video>
+      <AirPodsBox>
+        <VideoBackground ref={videoRef} autoPlay muted loop>
+          <source src="/Content_Introduction/large_2x.mp4" type="video/mp4" />
+        </VideoBackground>
         <Airpods3rdBoxContent>
           <h2>AirPods</h2>
           <h3>3rd generation</h3>
           <div>HK$1,499</div>
         </Airpods3rdBoxContent>
         <PlayButton onClick={PlayPauseHandler}>
-          <FontAwesomeIcon icon={playPauseIcon} />
+          <FontAwesomeIcon icon={isPlay?faCirclePause:faCirclePlay} />
         </PlayButton>
-      </ProductBox>
-      <ProductBox>
+      </AirPodsBox>
+      <AirPodsBox>
         <AirPodsProLeft
-          src="/airpods_pro_left_large.png"
+          src="/Content_Introduction/airpods_pro_left_large.png"
           alt="airpods_pro_left_large"
         />
         <AirPodsProRight
-          src="/airpods_pro_right_large.png"
+          src="/Content_Introduction/airpods_pro_right_large.png"
           alt="airpods_pro_right_large"
         />
         <AirPodsProContentBox>
           <h2>AirPods Pro</h2>
           <div>HK$1,999</div>
         </AirPodsProContentBox>
-      </ProductBox>
-      <ProductBox>
+      </AirPodsBox>
+      <AirPodsBox>
         <AirPodsMaxBox>
           <h2>AirPods Max</h2>
           <div>HK$4,599</div>
         </AirPodsMaxBox>
-        <AirPodsMax src="/airpods_max_large.png" alt="airpods_max_large" />
-      </ProductBox>
-      <ProductBox>
+        <AirPodsMax src="/Content_Introduction/airpods_max_large.png" alt="airpods_max_large" />
+      </AirPodsBox>
+      <AirPodsBox>
         {/* l:366px r:319px  */}
         <AirPods2ndLeft
-          src="/airpods_2nd_left_large.png"
+          src="/Content_Introduction/airpods_2nd_left_large.png"
           alt="airpods_2nd_left_large"
         />
         <AirPods2ndRight
-          src="/airpods_2nd_right_large.png"
+          src="/Content_Introduction/airpods_2nd_right_large.png"
           alt="airpods_2nd_right_large"
         />
         <AirPods2ndBox>
@@ -164,7 +170,7 @@ function AirPodsIntroduction() {
           <h3>2nd generation</h3>
           <div>HK$1,099</div>
         </AirPods2ndBox>
-      </ProductBox>
+      </AirPodsBox>
     </Container>
   );
 };
