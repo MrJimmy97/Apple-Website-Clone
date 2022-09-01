@@ -7,7 +7,7 @@ const Content = styled.div`
   background-color: white;
   border-radius: 16px;
   height: 484px;
-  min-width: 403px;
+  min-width: 380px;
   margin-left: 20px;
   position: relative;
 
@@ -22,7 +22,7 @@ const Content = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  width: 403px;
+  width: 380px;
   height: 375px;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,6 @@ const ClickedMessageWrapper = styled.div`
 
   & > h4 {
     font-size: 24px;
-
     margin: 0 0 20px 0;
   }
   & > p {
