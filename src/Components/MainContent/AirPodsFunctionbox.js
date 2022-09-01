@@ -112,7 +112,7 @@ function AirPodsFunctionBox({ imageScr, imageAlt, content, title }) {
       ) : (
         <ClickedMessageWrapper>
           <h4>{title}</h4>
-          <p>{content}</p>
+          {content}
         </ClickedMessageWrapper>
       )}
       <CrossButton
