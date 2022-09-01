@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const NavBar = styled.div`
   background-color: white;
@@ -27,27 +27,21 @@ const ProductBarButton = styled.button`
   }
   & .AirPods2nd {
     width: 35px;
-    padding-bottom: 4px;
   }
   & .AirPods3rd {
     width: 32px;
-    padding-bottom: 4px;
   }
   & .AirPodsPro {
     width: 40px;
-    padding-bottom: 4px;
   }
   & .AirPodsMax {
     width: 35px;
-    padding-bottom: 4px;
   }
   & .AppleMusic {
     width: 34px;
-    padding-bottom: 4px;
   }
   & .Compare {
     width: 44px;
-    padding-bottom: 4px;
 
     @keyframes left-to-center {
       from {
@@ -65,7 +59,11 @@ function ProductBar() {
   return (
     <NavBar>
       <ProductBarButton>
-        <img className="AirPods2nd" src="/NavBar/AirPods_2nd.png" alt="AirPods2nd" />
+        <img
+          css='width: 35px'
+          src="/NavBar/AirPods_2nd.png"
+          alt="AirPods2nd"
+        />
         <div>
           AirPods
           <br />
@@ -73,18 +71,30 @@ function ProductBar() {
         </div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="AirPods3rd" src="/NavBar/AirPods_3rd.png" alt="AirPods3nd" />
+        <img
+          className="AirPods3rd"
+          src="/NavBar/AirPods_3rd.png"
+          alt="AirPods3nd"
+        />
         <div>
           AirPods <br />
           3rd Generation
         </div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="AirPodsPro" src="/NavBar/AirPodsPro.png" alt="AirPodsPro" />
+        <img
+          className="AirPodsPro"
+          src="/NavBar/AirPodsPro.png"
+          alt="AirPodsPro"
+        />
         <div>AirPods Pro</div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="AirPodsMax" src="/NavBar/AirPodsMax.png" alt="AirPodsMax" />
+        <img
+          className="AirPodsMax"
+          src="/NavBar/AirPodsMax.png"
+          alt="AirPodsMax"
+        />
         <div>AirPods Max</div>
       </ProductBarButton>
       <ProductBarButton>
@@ -92,11 +102,15 @@ function ProductBar() {
         <div>Compare</div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="AppleMusic" src="/NavBar/AppleMusic.png" alt="AppleMusic" />
+        <img
+          className="AppleMusic"
+          src="/NavBar/AppleMusic.png"
+          alt="AppleMusic"
+        />
         <div>Apple Music</div>
       </ProductBarButton>
     </NavBar>
   );
-};
+}
 
 export default ProductBar;

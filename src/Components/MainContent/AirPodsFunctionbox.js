@@ -31,11 +31,12 @@ const ImageWrapper = styled.div`
 
   & > img {
     margin: 0 auto;
+    
   }
 `;
 
 const FunctionBoxTitle = styled.h4`
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 44px;
   padding-left: 40px;
   font-weight: 600;

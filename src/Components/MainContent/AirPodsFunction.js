@@ -4,13 +4,14 @@ import {
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
 } from "@fortawesome/free-regular-svg-icons";
+import { useRef } from "react";
 import AirPodsFunctionBox from "./AirPodsFunctionbox";
 
 const FunctionItemBar = styled.div`
   display: flex;
   flex-direction: row;
-  padding-left: 20px;
   overflow: hidden;
+  scroll-behavior: smooth;
 `;
 
 const InsideMessage = styled.p`
@@ -22,6 +23,11 @@ const InsideMessage = styled.p`
     color: rgb(65, 141, 217);
     cursor: pointer;
   }
+`;
+
+const SpaceWrapper = styled.div`
+  min-width: 719px;
+  color: transparent;
 `;
 
 const ScrollButtonWrapper = styled.div`
@@ -101,9 +107,17 @@ function AirPodsFunction() {
       ),
     },
   ];
+  const functionBarRef = useRef();
+  const slideLeftHandler = () => {
+    functionBarRef.current.scrollLeft -= 400;
+  };
+  const slideRightHandler = () => {
+    functionBarRef.current.scrollLeft += 400;
+  };
+
   return (
     <div>
-      <FunctionItemBar>
+      <FunctionItemBar ref={functionBarRef}>
         {airPodsFunctions.map((functiondata) => (
           <AirPodsFunctionBox
             title={functiondata.title}
@@ -113,13 +127,17 @@ function AirPodsFunction() {
             key={functiondata.key}
           />
         ))}
+        <SpaceWrapper />
       </FunctionItemBar>
       <ScrollButtonWrapper>
-        <ScrollButton>
+        <ScrollButton onClick={slideLeftHandler}>
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
         </ScrollButton>
         <ScrollButton>
-          <FontAwesomeIcon icon={faArrowAltCircleRight} />
+          <FontAwesomeIcon
+            onClick={slideRightHandler}
+            icon={faArrowAltCircleRight}
+          />
         </ScrollButton>
       </ScrollButtonWrapper>
     </div>
