@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
@@ -7,22 +7,38 @@ const Content = styled.div`
   background-color: white;
   border-radius: 16px;
   height: 484px;
-  width: 403px;
+  min-width: 403px;
+  margin-left: 20px;
   position: relative;
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
+
 const ImageWrapper = styled.div`
+  width: 403px;
+  height: 375px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: fadein 0.5s forwards;
 
   & > img {
     margin: 0 auto;
   }
 `;
+
 const FunctionBoxTitle = styled.h4`
-  font-size: 26px;
+  font-size: 24px;
   margin-top: 44px;
   padding-left: 40px;
+  font-weight: 600;
 `;
 
 const ClickedMessageWrapper = styled.div`
@@ -33,9 +49,11 @@ const ClickedMessageWrapper = styled.div`
   text-align: left;
   width: 70%;
   height: 100%;
+  animation: fadein 0.5s forwards;
 
   & > h4 {
     font-size: 24px;
+
     margin: 0 0 20px 0;
   }
   & > p {
@@ -50,81 +68,58 @@ const CrossButton = styled.button`
   font-size: 40px;
   left: 80%;
   top: 85%;
-  transform: rotate(45deg);
-  cursor: pointer;
-  & > :hover {
-    color: rgb(107, 107, 107);
-  }
+  animation: ${(props) =>
+    props.isClicked
+      ? "crossButton-to-plusButton 0.5s forwards"
+      : "plusButton-to-crossButton 0.5s forwards"};
 
   @keyframes crossButton-to-plusButton {
-    from {
+    0% {
       transform: rotate(90deg);
     }
-    to {
+    100% {
       transform: rotate(45deg);
     }
   }
   @keyframes plusButton-to-crossButton {
-    from {
+    0% {
       transform: rotate(45deg);
     }
-    to {
+    100% {
       transform: rotate(90deg);
     }
   }
+
+  cursor: pointer;
+  & > :hover {
+    color: rgb(107, 107, 107);
+  }
 `;
 
-function AirPodsFunctionBox(props) {
+function AirPodsFunctionBox({ imageScr, imageAlt, content, title }) {
   const crossButtonRef = useRef();
   const [isClicked, setIsClicked] = useState(true);
-  // const [isOringal, setIsDisplay] = useState(functionboxDisplay);
 
-  // let functionboxDisplay = (
-  //   <div>
-  //     <ImageWrapper>
-  //       <img
-  //         src="./Content_function/tile_onetap_setup__fzj1m8dhjoq6_large.jpg"
-  //         alt="onetap_setup"
-  //       />
-  //     </ImageWrapper>
-  //     <FunctionBoxTitle>One-tap setup</FunctionBoxTitle>
-  //   </div>
-  // );
-
-  // functionboxDisplay = (
-  //   <div>
-  //     <ImageWrapper>
-  //       <img
-  //         src="./Content_function/tile_onetap_setup__fzj1m8dhjoq6_large.jpg"
-  //         alt="onetap_setup"
-  //       />
-  //     </ImageWrapper>
-  //     <FunctionBoxTitle>One-tap setup</FunctionBoxTitle>
-  //   </div>
-  // )
-
-  const clickHandler = () => {
-    if (isClicked) {
-      crossButtonRef.current.style.animation =
-        "plusButton-to-crossButton 1s forwards";
-     ;
-    } else {
-      crossButtonRef.current.style.animation =
-        "crossButton-to-plusButton 1s forwards";
-     ;
-    }
-    setIsClicked((PlusIcon) => !PlusIcon);
-  };
   return (
     <Content>
-      <ImageWrapper>
-        <img
-          src="./Content_function/tile_onetap_setup__fzj1m8dhjoq6_large.jpg"
-          alt="onetap_setup"
-        />
-      </ImageWrapper>
-      <FunctionBoxTitle>One-tap setup</FunctionBoxTitle>
-      <CrossButton ref={crossButtonRef} onClick={clickHandler}>
+      {isClicked ? (
+        <div>
+          <ImageWrapper>
+            <img src={imageScr} alt={imageAlt} />
+          </ImageWrapper>
+          <FunctionBoxTitle>{title}</FunctionBoxTitle>
+        </div>
+      ) : (
+        <ClickedMessageWrapper>
+          <h4>{title}</h4>
+          <p>{content}</p>
+        </ClickedMessageWrapper>
+      )}
+      <CrossButton
+        ref={crossButtonRef}
+        onClick={() => setIsClicked((current) => !current)}
+        isClicked={isClicked}
+      >
         <FontAwesomeIcon icon={faCircleXmark} />
       </CrossButton>
     </Content>

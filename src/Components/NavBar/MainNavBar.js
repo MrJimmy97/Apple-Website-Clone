@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAppleWhole,
@@ -33,7 +33,7 @@ function MainNavBar() {
   return (
     <NavBar>
       <NavItem>
-        <FontAwesomeIcon style={{ fontSize: "15px" }} icon={faAppleWhole} />
+        <FontAwesomeIcon css='font-size: 15px' icon={faAppleWhole} />
       </NavItem>
       <NavItem>Store</NavItem>
       <NavItem>Mac</NavItem>
@@ -47,12 +47,12 @@ function MainNavBar() {
       <NavItem>Support</NavItem>
       <NavItem>
         <FontAwesomeIcon
-          style={{ fontSize: "15px" }}
+          css='font-size: 15px'
           icon={faMagnifyingGlass}
         />
       </NavItem>
       <NavItem>
-        <FontAwesomeIcon style={{ fontSize: "15px" }} icon={faShoppingBag} />
+        <FontAwesomeIcon css='font-size: 15px' icon={faShoppingBag} />
       </NavItem>
     </NavBar>
   );

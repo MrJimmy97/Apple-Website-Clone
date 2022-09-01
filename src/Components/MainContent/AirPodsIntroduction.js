@@ -48,9 +48,9 @@ const PlayButton = styled.button`
     color: white;
   }
 `;
-const AirPodsProContentBox = styled.div`
+const AirPodsProContent= styled.div`
   text-align: center;
-  margin-bottom: 180px;
+  margin:0px;
   & > h2 {
     margin: 0 0 4px 0;
     font-size: 120px;
@@ -68,24 +68,24 @@ const AirPodsProRight = styled.img`
   left: 52%;
   height: 541px;
 `;
-const AirPodsMaxBox = styled.div`
+const AirPodsMaxContent = styled.div`
   text-align: center;
-  margin-bottom: 200px;
+  margin: 0px;
   & > h2 {
     margin: 0;
-    font-size: 200px;
+    font-size: 180px;
   }
   & > div {
     font-size: 20px;
   }
 `;
 const AirPodsMax = styled.img`
-  top: calc((680px - 520px) / 2);
+  top: 10%;
   left: calc(50% - 470px / 2);
   width: 470px;
 `;
-const AirPods2ndBox = styled.div`
-  margin-bottom: 200px;
+const AirPods2ndContent = styled.div`
+  margin: 0px;
   text-align: center;
   & > h2 {
     margin: 0 0 4px 0;
@@ -143,16 +143,16 @@ function AirPodsIntroduction() {
           src="/Content_Introduction/airpods_pro_right_large.png"
           alt="airpods_pro_right_large"
         />
-        <AirPodsProContentBox>
+        <AirPodsProContent>
           <h2>AirPods Pro</h2>
           <div>HK$1,999</div>
-        </AirPodsProContentBox>
+        </AirPodsProContent>
       </AirPodsBox>
       <AirPodsBox>
-        <AirPodsMaxBox>
+        <AirPodsMaxContent>
           <h2>AirPods Max</h2>
           <div>HK$4,599</div>
-        </AirPodsMaxBox>
+        </AirPodsMaxContent>
         <AirPodsMax src="/Content_Introduction/airpods_max_large.png" alt="airpods_max_large" />
       </AirPodsBox>
       <AirPodsBox>
@@ -165,11 +165,11 @@ function AirPodsIntroduction() {
           src="/Content_Introduction/airpods_2nd_right_large.png"
           alt="airpods_2nd_right_large"
         />
-        <AirPods2ndBox>
+        <AirPods2ndContent>
           <h2>AirPods</h2>
           <h3>2nd generation</h3>
           <div>HK$1,099</div>
-        </AirPods2ndBox>
+        </AirPods2ndContent>
       </AirPodsBox>
     </Container>
   );
