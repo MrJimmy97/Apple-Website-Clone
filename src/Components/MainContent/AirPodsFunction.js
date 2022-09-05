@@ -4,12 +4,11 @@ import {
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
 } from "@fortawesome/free-regular-svg-icons";
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import AirPodsFunctionBox from "./AirPodsFunctionbox";
 
 const FunctionItemBar = styled.div`
   display: flex;
-  flex-direction: row;
   overflow: hidden;
   scroll-behavior: smooth;
 `;
@@ -17,7 +16,6 @@ const FunctionItemBar = styled.div`
 const InsideMessage = styled.p`
   font-size: 19px;
   font-weight: 400;
-  margin: 0;
 
   & > sup:hover {
     color: rgb(65, 141, 217);
@@ -33,14 +31,21 @@ const SpaceWrapper = styled.div`
 const ScrollButtonWrapper = styled.div`
   text-align: center;
   margin-top: 10px;
+
+  & > button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0;
+    margin: 10px 10px;
+    cursor: pointer;
+  }
 `;
-const ScrollButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 30px;
-  padding: 0;
-  margin: 10px 10px;
-  cursor: pointer;
+const ScrollLeftButton = styled.button`
+  opacity: ${(props) => (!props.isLeftBlack ? 0.5 : 1)};
+`;
+const ScrollRightButton = styled.button`
+  opacity: ${(props) => (props.isRightBlack ? 1 : 0.5)};
 `;
 
 function AirPodsFunction() {
@@ -102,18 +107,60 @@ function AirPodsFunction() {
         <InsideMessage>
           Siri can read your important messages or alerts as they arrive —
           unless you're on a call or listening to music. You can even reply to
-          messages without opening your device.<sup>3</sup>,
+          messages without opening your device.<sup>3</sup>
         </InsideMessage>
       ),
     },
   ];
-  const functionBarRef = useRef();
+  const functionBarRef = useRef(null);
+  // const functionBarRefWrapper = useCallback((node) => {if (node !== null){
+  //   functionBarRef.current.scrollLeft =
+  //   console.log(node.scrollLeft);
+      
+  // }
+  // },[]);
+
+  // const [sliderScrollLeft, setsliderScrollScroll] = useState(0);
+  const [isLeftBlack, setLeftBlack] = useState(false);
+  const [isRightBlack, setRightBlack] = useState(true);
+
+  useEffect(() => {
+    if (functionBarRef.current) {
+      let scrollLeftPosition = functionBarRef.current.scrollLeft;
+     return console.log(functionBarRef.current.scrollLeft); // example
+    }
+  }, [functionBarRef]);
+
   const slideLeftHandler = () => {
+    console.log(`1.${functionBarRef.current.scrollLeft}`);
     functionBarRef.current.scrollLeft -= 400;
+    // console.log(`1.${sliderScrollLeft}`);
+    // functionBarRef.current.scrollLeft -= 400;
+    // setsliderScrollScroll(functionBarRef.current.scrollLeft);
+    // console.log(`2.${sliderScrollLeft}`);
+    // if (functionBarRef.current.scrollLeft >= 0) {
+    //   setLeftBlack(true);
+    // } else if (functionBarRef.current.scrollLeft >= 1200) {
+    //   setRightBlack(false);
+    // }
   };
   const slideRightHandler = () => {
+    console.log(`1.${functionBarRef.current.scrollLeft}`);
     functionBarRef.current.scrollLeft += 400;
+    // console.log(`1.${functionBarRef}`);
+    // functionBarRef.current.scrollLeft += 400;
+    // setsliderScrollScroll(functionBarRef.current.scrollLeft);
+    // console.log(`2.${sliderScrollLeft}`);
+    // if (functionBarRef.current.scrollLeft >= 0) {
+    //   setLeftBlack(true);
+    // } else if (functionBarRef.current.scrollLeft >= 1200) {
+    //   setRightBlack(false);
+    // }
   };
+
+  // useEffect(() => {
+  //   setsliderScrollScroll(functionBarRef.current.scrollLeft);
+  //    console.log(sliderScrollLeft); }, [sliderScrollLeft])
 
   return (
     <div>
@@ -130,15 +177,18 @@ function AirPodsFunction() {
         <SpaceWrapper />
       </FunctionItemBar>
       <ScrollButtonWrapper>
-        <ScrollButton onClick={slideLeftHandler}>
+        <ScrollLeftButton
+          isLeftBlack={isLeftBlack}
+          onClick={() => setTimeout(slideLeftHandler, 200)}
+        >
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
-        </ScrollButton>
-        <ScrollButton>
-          <FontAwesomeIcon
-            onClick={slideRightHandler}
-            icon={faArrowAltCircleRight}
-          />
-        </ScrollButton>
+        </ScrollLeftButton>
+        <ScrollRightButton
+          isRightBlack={isRightBlack}
+          onClick={() => setTimeout(slideRightHandler, 200)}
+        >
+          <FontAwesomeIcon icon={faArrowAltCircleRight} />
+        </ScrollRightButton>
       </ScrollButtonWrapper>
     </div>
   );

@@ -31,7 +31,6 @@ const ImageWrapper = styled.div`
 
   & > img {
     margin: 0 auto;
-    
   }
 `;
 
@@ -54,11 +53,10 @@ const ClickedMessageWrapper = styled.div`
 
   & > h4 {
     font-size: 24px;
-    margin: 0 0 20px 0;
+    margin-bottom: 20px;
   }
   & > p {
     font-size: 19px;
-    margin: 0;
   }
 `;
 const CrossButton = styled.button`
@@ -98,22 +96,22 @@ const CrossButton = styled.button`
 
 function AirPodsFunctionBox({ imageScr, imageAlt, content, title }) {
   const crossButtonRef = useRef();
-  const [isClicked, setIsClicked] = useState(true);
+  const [isClicked, setIsClicked] = useState(false);
 
   return (
     <Content>
       {isClicked ? (
+        <ClickedMessageWrapper>
+          <h4>{title}</h4>
+          {content}
+        </ClickedMessageWrapper>
+      ) : (
         <div>
           <ImageWrapper>
             <img src={imageScr} alt={imageAlt} />
           </ImageWrapper>
           <FunctionBoxTitle>{title}</FunctionBoxTitle>
         </div>
-      ) : (
-        <ClickedMessageWrapper>
-          <h4>{title}</h4>
-          {content}
-        </ClickedMessageWrapper>
       )}
       <CrossButton
         ref={crossButtonRef}

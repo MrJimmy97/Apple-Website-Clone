@@ -42,7 +42,7 @@ const PlayButton = styled.button`
   font-size: 40px;
   color: rgb(216, 216, 216);
   bottom: 30px;
-  left: 94%;
+  right: 3%;
   cursor: pointer;
   &:hover {
     color: white;
