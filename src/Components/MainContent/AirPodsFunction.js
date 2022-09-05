@@ -28,7 +28,7 @@ const SpaceWrapper = styled.div`
   color: transparent;
 `;
 
-const ScrollButtonWrapper = styled.div`
+const ScrollButtons = styled.div`
   text-align: center;
   margin-top: 10px;
 
@@ -42,94 +42,92 @@ const ScrollButtonWrapper = styled.div`
   }
 `;
 const ScrollLeftButton = styled.button`
-  opacity: ${(props) => (!props.isLeftBlack ? 0.5 : 1)};
+  opacity: ${(props) => (props.disabled && 0.5)};
 `;
 const ScrollRightButton = styled.button`
-  opacity: ${(props) => (props.isRightBlack ? 1 : 0.5)};
+  opacity: ${(props) => (props.disabled && 0.5)};
 `;
 
+const airPodsInfo = [
+  {
+    key: "n1",
+    title: "One-tap setup",
+    imageScr: "./Content_function/tile_onetap_setup.jpg",
+    imageAlt: "onetap_setup",
+    content: (
+      <InsideMessage>
+        Connect immediately to your iPhone or iPad.
+      </InsideMessage>
+    ),
+  },
+  {
+    key: "n2",
+    title: "Automatic switching",
+    imageScr: "./Content_function/tile_automatic_switching.jpg",
+    imageAlt: "automatic_switching",
+    content: (
+      <InsideMessage>
+        Automatic switching allows sound to move seamlessly between your
+        iPhone, Apple Watch, iPad, Mac, and Apple TV<sup>1</sup>.
+      </InsideMessage>
+    ),
+  },
+  {
+    key: "n3",
+    title: "Audio Sharing",
+    imageScr: "./Content_function/tile_audio_sharing.jpg",
+    imageAlt: "audio_sharing",
+    content: (
+      <InsideMessage>
+        Share a song, podcast, or other audio between two sets of AirPods with
+        Audio Sharing<sup>2</sup>.
+      </InsideMessage>
+    ),
+  },
+  {
+    key: "n4",
+    title: "Always-on Siri",
+    imageScr: "./Content_function/tile_always_on_siri.png",
+    imageAlt: "always_on_siri",
+    content: (
+      <InsideMessage>
+        A simple “Hey Siri” summons your favorite personal assistant. Control
+        your music, calls, volume, directions, and more — without lifting a
+        finger.
+      </InsideMessage>
+    ),
+  },
+  {
+    key: "n5",
+    title: "Announce Notifications",
+    imageScr: "./Content_function/tile_announce_notifications.png",
+    imageAlt: "announce_notifications",
+    content: (
+      <InsideMessage>
+        Siri can read your important messages or alerts as they arrive —
+        unless you're on a call or listening to music. You can even reply to
+        messages without opening your device.<sup>3</sup>
+      </InsideMessage>
+    ),
+  },
+];
+
 function AirPodsFunction() {
-  const airPodsFunctions = [
-    {
-      key: "n1",
-      title: "One-tap setup",
-      imageScr: "./Content_function/tile_onetap_setup.jpg",
-      imageAlt: "onetap_setup",
-      content: (
-        <InsideMessage>
-          Connect immediately to your iPhone or iPad.
-        </InsideMessage>
-      ),
-    },
-    {
-      key: "n2",
-      title: "Automatic switching",
-      imageScr: "./Content_function/tile_automatic_switching.jpg",
-      imageAlt: "automatic_switching",
-      content: (
-        <InsideMessage>
-          Automatic switching allows sound to move seamlessly between your
-          iPhone, Apple Watch, iPad, Mac, and Apple TV<sup>1</sup>.
-        </InsideMessage>
-      ),
-    },
-    {
-      key: "n3",
-      title: "Audio Sharing",
-      imageScr: "./Content_function/tile_audio_sharing.jpg",
-      imageAlt: "audio_sharing",
-      content: (
-        <InsideMessage>
-          Share a song, podcast, or other audio between two sets of AirPods with
-          Audio Sharing<sup>2</sup>.
-        </InsideMessage>
-      ),
-    },
-    {
-      key: "n4",
-      title: "Always-on Siri",
-      imageScr: "./Content_function/tile_always_on_siri.png",
-      imageAlt: "always_on_siri",
-      content: (
-        <InsideMessage>
-          A simple “Hey Siri” summons your favorite personal assistant. Control
-          your music, calls, volume, directions, and more — without lifting a
-          finger.
-        </InsideMessage>
-      ),
-    },
-    {
-      key: "n5",
-      title: "Announce Notifications",
-      imageScr: "./Content_function/tile_announce_notifications.png",
-      imageAlt: "announce_notifications",
-      content: (
-        <InsideMessage>
-          Siri can read your important messages or alerts as they arrive —
-          unless you're on a call or listening to music. You can even reply to
-          messages without opening your device.<sup>3</sup>
-        </InsideMessage>
-      ),
-    },
-  ];
   const functionBarRef = useRef(null);
   // const functionBarRefWrapper = useCallback((node) => {if (node !== null){
   //   functionBarRef.current.scrollLeft =
   //   console.log(node.scrollLeft);
-      
+
   // }
   // },[]);
 
   // const [sliderScrollLeft, setsliderScrollScroll] = useState(0);
-  const [isLeftBlack, setLeftBlack] = useState(false);
-  const [isRightBlack, setRightBlack] = useState(true);
-
-  useEffect(() => {
-    if (functionBarRef.current) {
-      let scrollLeftPosition = functionBarRef.current.scrollLeft;
-     return console.log(functionBarRef.current.scrollLeft); // example
-    }
-  }, [functionBarRef]);
+  const [isLeft, setLeft] = useState(true);
+  const [isRight, setRight] = useState(false);
+  const handleScroll = (event) => {
+    setLeft(event.target.scrollLeft === 0)
+    setRight(event.target.scrollLeft >= 1200)
+  };
 
   const slideLeftHandler = () => {
     console.log(`1.${functionBarRef.current.scrollLeft}`);
@@ -164,8 +162,8 @@ function AirPodsFunction() {
 
   return (
     <div>
-      <FunctionItemBar ref={functionBarRef}>
-        {airPodsFunctions.map((functiondata) => (
+      <FunctionItemBar ref={functionBarRef} onScroll={handleScroll}>
+        {airPodsInfo.map((functiondata) => (
           <AirPodsFunctionBox
             title={functiondata.title}
             imageScr={functiondata.imageScr}
@@ -176,20 +174,20 @@ function AirPodsFunction() {
         ))}
         <SpaceWrapper />
       </FunctionItemBar>
-      <ScrollButtonWrapper>
+      <ScrollButtons>
         <ScrollLeftButton
-          isLeftBlack={isLeftBlack}
-          onClick={() => setTimeout(slideLeftHandler, 200)}
+          disabled={isLeft}
+          onClick={() => setTimeout(slideLeftHandler, 100)}
         >
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
         </ScrollLeftButton>
         <ScrollRightButton
-          isRightBlack={isRightBlack}
-          onClick={() => setTimeout(slideRightHandler, 200)}
+          disabled={isRight}
+          onClick={() => setTimeout(slideRightHandler, 100)}
         >
           <FontAwesomeIcon icon={faArrowAltCircleRight} />
         </ScrollRightButton>
-      </ScrollButtonWrapper>
+      </ScrollButtons>
     </div>
   );
 }
