@@ -21,7 +21,7 @@ const Content = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
+const Image = styled.div`
   width: 380px;
   height: 375px;
   display: flex;
@@ -34,14 +34,14 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const FunctionBoxTitle = styled.h4`
+const FeatureBoxTitle = styled.h4`
   font-size: 22px;
   margin-top: 44px;
   padding-left: 40px;
   font-weight: 600;
 `;
 
-const ClickedMessageWrapper = styled.div`
+const ClickedMessage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,6 +66,7 @@ const CrossButton = styled.button`
   font-size: 40px;
   left: 80%;
   top: 85%;
+  cursor: pointer;
   animation: ${(props) =>
     props.isClicked
       ? "crossButton-to-plusButton 0.5s forwards"
@@ -87,30 +88,28 @@ const CrossButton = styled.button`
       transform: rotate(90deg);
     }
   }
-
-  cursor: pointer;
   & > :hover {
     color: rgb(107, 107, 107);
   }
 `;
 
-function AirPodsFunctionBox({ imageScr, imageAlt, content, title }) {
+function AirPodsFeature({ imageScr, imageAlt, content, title }) {
   const crossButtonRef = useRef();
   const [isClicked, setIsClicked] = useState(false);
 
   return (
     <Content>
       {isClicked ? (
-        <ClickedMessageWrapper>
+        <ClickedMessage>
           <h4>{title}</h4>
           {content}
-        </ClickedMessageWrapper>
+        </ClickedMessage>
       ) : (
         <div>
-          <ImageWrapper>
+          <Image>
             <img src={imageScr} alt={imageAlt} />
-          </ImageWrapper>
-          <FunctionBoxTitle>{title}</FunctionBoxTitle>
+          </Image>
+          <FeatureBoxTitle>{title}</FeatureBoxTitle>
         </div>
       )}
       <CrossButton
@@ -124,4 +123,4 @@ function AirPodsFunctionBox({ imageScr, imageAlt, content, title }) {
   );
 }
 
-export default AirPodsFunctionBox;
+export default AirPodsFeature;
