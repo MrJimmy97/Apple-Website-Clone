@@ -1,7 +1,7 @@
 import NavBar from "./Components/NavBar/NavBar";
-import AirPodsIntroductions from "./Components/MainContent/AirPodsIntroductions";
+import AirPodsIntroductions from "./Components/AirPodsInfo/AirPodsIntroductions";
 import MessageTitle from "./Components/MessageTitle";
-import AirPodsFeatures from "./Components/MainContent/AirPodsFeatures";
+import AirPodsFeatures from "./Components/AirPodsInfo/AirPodsFeatures";
 
 function App() {
   return (
