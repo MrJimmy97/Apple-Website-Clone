@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import GeneralButton from "../UI/GeneralButton";
+import GeneralButton from "../GeneralButton";
 
 const Product = styled.div`
   width: 96%;

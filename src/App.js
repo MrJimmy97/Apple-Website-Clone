@@ -1,6 +1,6 @@
 import NavBar from "./Components/NavBar/NavBar";
 import AirPodsIntroductions from "./Components/MainContent/AirPodsIntroductions";
-import MessageTitle from "./Components/UI/MessageTitle";
+import MessageTitle from "./Components/MessageTitle";
 import AirPodsFeatures from "./Components/MainContent/AirPodsFeatures";
 
 function App() {
