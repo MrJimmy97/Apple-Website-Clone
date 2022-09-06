@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -69,8 +69,8 @@ const CrossButton = styled.button`
   cursor: pointer;
   animation: ${(props) =>
     props.isClicked
-      ? "crossButton-to-plusButton 0.5s forwards"
-      : "plusButton-to-crossButton 0.5s forwards"};
+      ? "plusButton-to-crossButton 0.5s forwards"
+      : "crossButton-to-plusButton 0.5s forwards"};
 
   @keyframes crossButton-to-plusButton {
     0% {
@@ -94,7 +94,6 @@ const CrossButton = styled.button`
 `;
 
 function AirPodsFeature({ imageScr, imageAlt, content, title }) {
-  const crossButtonRef = useRef();
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -113,7 +112,6 @@ function AirPodsFeature({ imageScr, imageAlt, content, title }) {
         </div>
       )}
       <CrossButton
-        ref={crossButtonRef}
         onClick={() => setIsClicked((current) => !current)}
         isClicked={isClicked}
       >
