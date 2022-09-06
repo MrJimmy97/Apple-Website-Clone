@@ -8,8 +8,16 @@ function App() {
     <div>
       <NavBar />
       <AirPodsIntroductions />
-      <MessageTitle>A magical connection to<br/> your devices.</MessageTitle>
-      <AirPodsFeatures/>
+      <MessageTitle>
+        A magical connection to
+        <br /> your devices.
+      </MessageTitle>
+      <AirPodsFeatures />
+      <MessageTitle>
+        Which AirPods are
+        <br />
+        right for you?
+      </MessageTitle>
     </div>
   );
 }
