@@ -1,11 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
 import { useRef, useState } from "react";
 import AirPodsIntroduction from "./AirPodsIntroduction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlay,faCirclePause } from "@fortawesome/free-regular-svg-icons";
+import {
+  faCirclePlay,
+  faCirclePause,
+} from "@fortawesome/free-regular-svg-icons";
 
-const Container = styled.div`
-  background: linear-gradient(white 30%, transparent 70%);
+const IndroductionContainer = styled.div`
+  background: linear-gradient(white 0%, transparent 10%);
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -18,23 +21,9 @@ const VideoBackground = styled.video`
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;`
-
-const Airpods3rdBoxContent = styled.div`
-  margin-bottom: 16px;
-  text-align: center;
-  & > h2 {
-    margin: 300px 0 4px 0;
-    font-size: 120px;
-  }
-  & > h3 {
-    margin: 0 0 4px 0;
-    font-size: 20px;
-  }
-  & > div {
-    font-size: 20px;
-  }
+  width: 100%;
 `;
+
 const PlayButton = styled.button`
   position: absolute;
   background-color: transparent;
@@ -48,48 +37,11 @@ const PlayButton = styled.button`
     color: white;
   }
 `;
-const AirPodsProContent= styled.div`
-  text-align: center;
-  margin:0px;
-  & > h2 {
-    margin: 0 0 4px 0;
-    font-size: 120px;
-  }
-  & > div {
-    font-size: 20px;
-  }
-`;
-const AirPodsProLeft = styled.img`
-  top: calc((680px - 541px) / 2);
-  left: calc(48% - 390px);
-`;
-const AirPodsProRight = styled.img`
-  top: calc((680px - 541px) / 2);
-  left: 52%;
-  height: 541px;
-`;
-const AirPodsMaxContent = styled.div`
-  text-align: center;
-  margin: 0px;
-  & > h2 {
-    margin: 0;
-    font-size: 180px;
-  }
-  & > div {
-    font-size: 20px;
-  }
-`;
-const AirPodsMax = styled.img`
-  top: 10%;
-  left: calc(50% - 470px / 2);
-  width: 470px;
-`;
-const AirPods2ndContent = styled.div`
-  margin: 0px;
+
+const AirPodsContent = styled.div`
   text-align: center;
   & > h2 {
-    margin: 0 0 4px 0;
-    font-size: 120px;
+    margin: 0px 0 4px 0;
   }
   & > h3 {
     margin: 0 0 4px 0;
@@ -99,6 +51,12 @@ const AirPods2ndContent = styled.div`
     font-size: 20px;
   }
 `;
+
+const AirPods3rd = styled.img`
+  top: -10%;
+  left: 3%;
+`;
+
 const AirPods2ndLeft = styled.img`
   top: 10%;
   left: calc(42% - 366px);
@@ -106,6 +64,12 @@ const AirPods2ndLeft = styled.img`
 const AirPods2ndRight = styled.img`
   top: 40%;
   left: 56%;
+`;
+
+const AirPodsMax = styled.img`
+  top: 10%;
+  left: calc(50% - 470px / 2);
+  width: 470px;
 `;
 
 function AirPodsIntroductions() {
@@ -120,59 +84,65 @@ function AirPodsIntroductions() {
     setPlayPause((cur) => !cur);
   };
   return (
-    <Container>
-      <AirPodsIntroduction>
+    <IndroductionContainer>
+      <AirPodsIntroduction blackColorTheme = {true}>
         <VideoBackground ref={videoRef} autoPlay muted loop>
-          <source src="/Content_Introduction/large_2x.mp4" type="video/mp4" />
+          <source
+            src="/Content_Introductions/AirPodsPro_Video.mp4"
+            type="video/mp4"
+          />
         </VideoBackground>
-        <Airpods3rdBoxContent>
-          <h2>AirPods</h2>
-          <h3>3rd generation</h3>
-          <div>HK$1,499</div>
-        </Airpods3rdBoxContent>
+        <AirPodsContent>
+          <h2 css="font-size: 120px">AirPods Pro</h2>
+          <div>HK$1,849</div>
+        </AirPodsContent>
         <PlayButton onClick={PlayPauseHandler}>
-          <FontAwesomeIcon icon={isPlay?faCirclePause:faCirclePlay} />
+          <FontAwesomeIcon icon={isPlay ? faCirclePause : faCirclePlay} />
         </PlayButton>
       </AirPodsIntroduction>
-      <AirPodsIntroduction>
-        <AirPodsProLeft
-          src="/Content_Introduction/airpods_pro_left_large.png"
-          alt="airpods_pro_left_large"
+
+      <AirPodsIntroduction blackColorTheme = {false}>
+        <AirPods3rd
+          src="/Content_Introductions/airpods_3rd_large.jpg"
+          alt="airpods_3rd_large"
         />
-        <AirPodsProRight
-          src="/Content_Introduction/airpods_pro_right_large.png"
-          alt="airpods_pro_right_large"
-        />
-        <AirPodsProContent>
-          <h2>AirPods Pro</h2>
-          <div>HK$1,999</div>
-        </AirPodsProContent>
+        
+        <AirPodsContent>
+          <h2 css="font-size: 120px">AirPods</h2>
+          <h3>3rd generation</h3>
+          <div>From HK$1,399</div>
+        </AirPodsContent>
       </AirPodsIntroduction>
-      <AirPodsIntroduction>
-        <AirPodsMaxContent>
-          <h2>AirPods Max</h2>
-          <div>HK$4,599</div>
-        </AirPodsMaxContent>
-        <AirPodsMax src="/Content_Introduction/airpods_max_large.png" alt="airpods_max_large" />
-      </AirPodsIntroduction>
-      <AirPodsIntroduction>
+
+      <AirPodsIntroduction blackColorTheme = {false}>
         {/* l:366px r:319px  */}
         <AirPods2ndLeft
-          src="/Content_Introduction/airpods_2nd_left_large.png"
+          src="/Content_Introductions/airpods_2nd_left_large.png"
           alt="airpods_2nd_left_large"
         />
         <AirPods2ndRight
-          src="/Content_Introduction/airpods_2nd_right_large.png"
+          src="/Content_Introductions/airpods_2nd_right_large.png"
           alt="airpods_2nd_right_large"
         />
-        <AirPods2ndContent>
-          <h2>AirPods</h2>
+        <AirPodsContent>
+          <h2 css="font-size: 120px">AirPods</h2>
           <h3>2nd generation</h3>
           <div>HK$1,099</div>
-        </AirPods2ndContent>
+        </AirPodsContent>
       </AirPodsIntroduction>
-    </Container>
+
+      <AirPodsIntroduction blackColorTheme = {false}>
+        <AirPodsContent>
+          <h2 css="font-size: 180px">AirPods Max</h2>
+          <div>HK$4,599</div>
+        </AirPodsContent>
+        <AirPodsMax
+          src="/Content_Introductions/airpods_max_large.png"
+          alt="airpods_max_large"
+        />
+      </AirPodsIntroduction>
+    </IndroductionContainer>
   );
-};
+}
 
 export default AirPodsIntroductions;

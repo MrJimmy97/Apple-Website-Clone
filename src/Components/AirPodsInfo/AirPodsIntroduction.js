@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
 import GeneralButton from "../GeneralButton";
 
 const Product = styled.div`
@@ -12,7 +12,7 @@ const Product = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: white;
 
   & > img {
     position: absolute;
@@ -21,37 +21,50 @@ const Product = styled.div`
   h2,
   h3 {
     position: relative;
-    color: white;
+    color: ${(props) => (props.blackColorTheme ? "white" : "black")};
   }
 `;
 const ProductButtonBox = styled.span`
   position: absolute;
-  top:88%;
+  top: 88%;
   left: calc(50%-113px);
 
-  .buyButton {
-    background-color: white;
-    color: black;
-    border-radius: 30px;
-    border: none;
+   .whiteLearnMoreButton {
     font-size: 20px;
-    padding: 12px 22px;
-    margin-right: 20px;
-    cursor: pointer;
+    color: rgb(65, 141, 217);
   }
-  .learnMoreButton {
+   .blackLearnMoreButton {
     font-size: 20px;
     color: white;
   }
 `;
 
+const BuyButton = styled.button`
+  background-color: ${(props) => (props.blackColorTheme ? "white" : "rgb(0,113,227)")};
+  color: ${(props) => (props.blackColorTheme ? "black" : "white")};
+  border-radius: 30px;
+  border: none;
+  font-size: 20px;
+  padding: 12px 22px;
+  margin-right: 20px;
+  cursor: pointer;
+  
+  &:hover{
+    background-color: ${(props) => (props.blackColorTheme ? "rgb(231,231,231)" : "rgb(0,119,237)")}
+    
+  }
+`;
+// {props.blackColorTheme ? "blackLearnMoreButton" : "whiteLearnMoreButton"}
+
 function AirPodsIntroduction(props) {
   return (
-    <Product>
+    <Product blackColorTheme={props.blackColorTheme}>
       {props.children}
       <ProductButtonBox>
-        <button className="buyButton">Buy</button>
-        <GeneralButton className="learnMoreButton">Learn more</GeneralButton>
+        <BuyButton blackColorTheme={props.blackColorTheme}>Buy</BuyButton>
+        <GeneralButton className={props.blackColorTheme ? "blackLearnMoreButton" : "whiteLearnMoreButton"} >
+          Learn more
+        </GeneralButton>
       </ProductButtonBox>
     </Product>
   );

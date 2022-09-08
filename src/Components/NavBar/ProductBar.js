@@ -84,10 +84,11 @@ function ProductBar() {
       <ProductBarButton>
         <img
           className="AirPodsPro"
-          src="/NavBar/AirPodsPro.png"
-          alt="AirPodsPro"
+          src="/NavBar/AirPodsPro2nd.png"
+          alt="AirPodsPro2nd"
         />
-        <div>AirPods Pro</div>
+        <div>AirPods Pro<br />
+          2nd Generation</div>
       </ProductBarButton>
       <ProductBarButton>
         <img

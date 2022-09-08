@@ -53,7 +53,7 @@ const airPodsFeatures = [
   {
     key: "n1",
     title: "One-tap setup",
-    imageScr: "./Content_function/tile_onetap_setup.jpg",
+    imageScr: "./Content_features/tile_onetap_setup.jpg",
     imageAlt: "onetap_setup",
     content: (
       <InsideMessage>Connect immediately to your iPhone or iPad.</InsideMessage>
@@ -62,7 +62,7 @@ const airPodsFeatures = [
   {
     key: "n2",
     title: "Automatic switching",
-    imageScr: "./Content_function/tile_automatic_switching.jpg",
+    imageScr: "./Content_features/tile_automatic_switching.jpg",
     imageAlt: "automatic_switching",
     content: (
       <InsideMessage>
@@ -74,7 +74,7 @@ const airPodsFeatures = [
   {
     key: "n3",
     title: "Audio Sharing",
-    imageScr: "./Content_function/tile_audio_sharing.jpg",
+    imageScr: "./Content_features/tile_audio_sharing.jpg",
     imageAlt: "audio_sharing",
     content: (
       <InsideMessage>
@@ -86,7 +86,7 @@ const airPodsFeatures = [
   {
     key: "n4",
     title: "Always-on Siri",
-    imageScr: "./Content_function/tile_always_on_siri.png",
+    imageScr: "./Content_features/tile_always_on_siri.png",
     imageAlt: "always_on_siri",
     content: (
       <InsideMessage>
@@ -99,7 +99,7 @@ const airPodsFeatures = [
   {
     key: "n5",
     title: "Announce Notifications",
-    imageScr: "./Content_function/tile_announce_notifications.png",
+    imageScr: "./Content_features/tile_announce_notifications.png",
     imageAlt: "announce_notifications",
     content: (
       <InsideMessage>
@@ -120,7 +120,7 @@ function AirPodsFeatures() {
     setLeft(event.target.scrollLeft === 0);
     if (event.target.clientWidth >= 1200) {
       setRight(event.target.scrollLeft === 1200);
-    } else{
+    } else {
       setRight(event.target.scrollLeft === 1600);
     }
   };
