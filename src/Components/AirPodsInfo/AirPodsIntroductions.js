@@ -52,6 +52,14 @@ const AirPodsContent = styled.div`
   }
 `;
 
+function AirPodsContent({ product: { name, generation, price } }) {
+  <>
+    <h2 css="font-size: 120px">{name}</h2>
+    <h3>{generation}</h3>
+    <div>HK${price}</div>
+  </>
+}
+
 const AirPods3rd = styled.img`
   top: -10%;
   left: 3%;
@@ -76,45 +84,34 @@ function AirPodsIntroductions() {
   const [isPlay, setPlayPause] = useState(true);
   const videoRef = useRef();
   const PlayPauseHandler = () => {
-    if (isPlay) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
+    if (isPlay) videoRef.current.pause();
+    else videoRef.current.play();
     setPlayPause((current) => !current);
   };
   return (
     <IndroductionContainer>
-      <AirPodsIntroduction blackColorTheme = {true}>
+      <AirPodsIntroduction blackColorTheme={true}>
         <VideoBackground ref={videoRef} autoPlay muted loop>
           <source
             src="/Content_Introductions/AirPodsPro_Video.mp4"
             type="video/mp4"
           />
         </VideoBackground>
-        <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods Pro</h2>
-          <div>HK$1,849</div>
-        </AirPodsContent>
+        <AirPodsContent product={DUMMY["AirPods Pro"]} />
         <PlayButton onClick={PlayPauseHandler}>
           <FontAwesomeIcon icon={isPlay ? faCirclePause : faCirclePlay} />
         </PlayButton>
       </AirPodsIntroduction>
 
-      <AirPodsIntroduction blackColorTheme = {false}>
+      <AirPodsIntroduction blackColorTheme={false}>
         <AirPods3rd
           src="/Content_Introductions/airpods_3rd_large.jpg"
           alt="airpods_3rd_large"
         />
-        
-        <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods</h2>
-          <h3>3rd generation</h3>
-          <div>From HK$1,399</div>
-        </AirPodsContent>
+        <AirPodsContent product={DUMMY["AirPods3"]} />
       </AirPodsIntroduction>
 
-      <AirPodsIntroduction blackColorTheme = {false}>
+      <AirPodsIntroduction blackColorTheme={false}>
         {/* l:366px r:319px  */}
         <AirPods2ndLeft
           src="/Content_Introductions/airpods_2nd_left_large.png"
@@ -124,18 +121,11 @@ function AirPodsIntroductions() {
           src="/Content_Introductions/airpods_2nd_right_large.png"
           alt="airpods_2nd_right_large"
         />
-        <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods</h2>
-          <h3>2nd generation</h3>
-          <div>HK$1,099</div>
-        </AirPodsContent>
+        <AirPodsContent product={DUMMY["AirPods2"]} />
       </AirPodsIntroduction>
 
-      <AirPodsIntroduction blackColorTheme = {false}>
-        <AirPodsContent>
-          <h2 css="font-size: 180px">AirPods Max</h2>
-          <div>HK$4,599</div>
-        </AirPodsContent>
+      <AirPodsIntroduction blackColorTheme={false}>
+        <AirPodsContent product={DUMMY["AirPods Max"]} />
         <AirPodsMax
           src="/Content_Introductions/airpods_max_large.png"
           alt="airpods_max_large"
