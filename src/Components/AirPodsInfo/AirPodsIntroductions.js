@@ -40,16 +40,7 @@ const PlayButton = styled.button`
 
 const AirPodsContent = styled.div`
   text-align: center;
-  & > h2 {
-    margin: 0px 0 4px 0;
-  }
-  & > h3 {
-    margin: 0 0 4px 0;
-    font-size: 20px;
-  }
-  & > div {
-    font-size: 20px;
-  }
+  font-size: 20px;
 `;
 
 const AirPods3rd = styled.img`
@@ -93,7 +84,7 @@ function AirPodsIntroductions() {
           />
         </VideoBackground>
         <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods Pro</h2>
+          <h3 css="font-size: 120px">AirPods Pro</h3>
           <div>HK$1,849</div>
         </AirPodsContent>
         <PlayButton onClick={PlayPauseHandler}>
@@ -106,10 +97,10 @@ function AirPodsIntroductions() {
           src="/Content_Introductions/airpods_3rd_large.jpg"
           alt="airpods_3rd_large"
         />
-        
+
         <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods</h2>
-          <h3>3rd generation</h3>
+          <h3 css="font-size: 120px">AirPods</h3>
+          <h4>3rd generation</h4>
           <div>From HK$1,399</div>
         </AirPodsContent>
       </AirPodsIntroduction>
@@ -125,15 +116,15 @@ function AirPodsIntroductions() {
           alt="airpods_2nd_right_large"
         />
         <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods</h2>
-          <h3>2nd generation</h3>
+          <h3 css="font-size: 120px">AirPods</h3>
+          <h4>2nd generation</h4>
           <div>HK$1,099</div>
         </AirPodsContent>
       </AirPodsIntroduction>
 
       <AirPodsIntroduction blackColorTheme = {false}>
         <AirPodsContent>
-          <h2 css="font-size: 180px">AirPods Max</h2>
+          <h3 css="font-size: 180px">AirPods Max</h3>
           <div>HK$4,599</div>
         </AirPodsContent>
         <AirPodsMax
