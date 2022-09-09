@@ -53,41 +53,55 @@ const airPodsFeatures = [
   {
     key: "n1",
     title: "One-tap setup",
-    imageScr: "./Content_features/tile_onetap_setup.jpg",
+    imageScr: "./Content_features/tile_onetap_setup_large.jpg",
     imageAlt: "onetap_setup",
     content: (
-      <InsideMessage>Connect immediately to your iPhone or iPad.</InsideMessage>
+      <InsideMessage>
+        Connect immediately to your iPhone or iPad.<sup>1</sup>
+      </InsideMessage>
     ),
   },
   {
     key: "n2",
-    title: "Automatic switching",
-    imageScr: "./Content_features/tile_automatic_switching.jpg",
-    imageAlt: "automatic_switching",
+    title: "Personalized Spatial Audio",
+    imageScr: "./Content_features/tile_spatial_audio_large.jpg",
+    imageAlt: "spatial_audio",
     content: (
       <InsideMessage>
-        Automatic switching allows sound to move seamlessly between your iPhone,
-        Apple Watch, iPad, Mac, and Apple TV<sup>1</sup>.
+        Personalized Spatial Audio plays three-dimensional sound tuned for your
+        specific ear shape — across all your devices.<sup>2</sup>
       </InsideMessage>
     ),
   },
   {
     key: "n3",
     title: "Audio Sharing",
-    imageScr: "./Content_features/tile_audio_sharing.jpg",
+    imageScr: "./Content_features/tile_audio_sharing_large.jpg",
     imageAlt: "audio_sharing",
     content: (
       <InsideMessage>
         Share a song, podcast, or other audio between two sets of AirPods with
-        Audio Sharing<sup>2</sup>.
+        Audio Sharing.<sup>3</sup>
       </InsideMessage>
     ),
   },
   {
     key: "n4",
-    title: "Always-on Siri",
-    imageScr: "./Content_features/tile_always_on_siri.png",
-    imageAlt: "always_on_siri",
+    title: "Automatic switching",
+    imageScr: "./Content_features/tile_automatic_switching_large.jpg",
+    imageAlt: "automatic_switching",
+    content: (
+      <InsideMessage>
+        Automatic switching allows sound to move seamlessly between your iPhone,
+        Apple Watch, iPad, Mac, and Apple TV.<sup>1</sup>
+      </InsideMessage>
+    ),
+  },
+  {
+    key: "n5",
+    title: "Siri",
+    imageScr: "./Content_features/tile_siri_large.jpg",
+    imageAlt: "siri",
     content: (
       <InsideMessage>
         A simple “Hey Siri” summons your favorite personal assistant. Control
@@ -97,15 +111,15 @@ const airPodsFeatures = [
     ),
   },
   {
-    key: "n5",
-    title: "Announce Notifications",
-    imageScr: "./Content_features/tile_announce_notifications.png",
-    imageAlt: "announce_notifications",
+    key: "n6",
+    title: "Accessibility",
+    imageScr: "./Content_features/tile_accessibility_large.jpg",
+    imageAlt: "accessibility",
     content: (
       <InsideMessage>
-        Siri can read your important messages or alerts as they arrive — unless
-        you're on a call or listening to music. You can even reply to messages
-        without opening your device.<sup>3</sup>
+        AirPods are loaded with features to assist with select hearing needs,
+        from focusing on the voice in front of you in noisy surroundings to
+        amplifying the frequencies you may need to hear more clearly.
       </InsideMessage>
     ),
   },
@@ -117,11 +131,12 @@ function AirPodsFeatures() {
   const [isRight, setRight] = useState(false);
 
   const ScrollHandler = (event) => {
+    console.log(event.target.scrollLeft,event.target.clientWidth)
     setLeft(event.target.scrollLeft === 0);
     if (event.target.clientWidth >= 1200) {
-      setRight(event.target.scrollLeft === 1200);
-    } else {
       setRight(event.target.scrollLeft === 1600);
+    } else {
+      setRight(event.target.scrollLeft === 2000);
     }
   };
 

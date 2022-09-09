@@ -81,7 +81,7 @@ function AirPodsIntroductions() {
     } else {
       videoRef.current.play();
     }
-    setPlayPause((cur) => !cur);
+    setPlayPause((current) => !current);
   };
   return (
     <IndroductionContainer>

@@ -37,15 +37,13 @@ const Image = styled.div`
 const FeatureBoxTitle = styled.h4`
   font-size: 22px;
   margin-top: 44px;
-  padding-left: 40px;
+  padding-left: 20px;
+  padding-right: 60px;
   font-weight: 600;
 `;
 
 const ClickedMessage = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 38px;
+  padding: 100px 76px 0px 38px;
   text-align: left;
   width: 70%;
   height: 100%;
@@ -53,10 +51,13 @@ const ClickedMessage = styled.div`
 
   & > h4 {
     font-size: 24px;
-    margin-bottom: 20px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    white-space: nowrap;
   }
   & > p {
     font-size: 19px;
+    font-weight: 400;
   }
 `;
 const CrossButton = styled.button`

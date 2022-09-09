@@ -4,7 +4,7 @@ import GeneralButton from "../GeneralButton";
 
 const ComparesConatainer = styled.div`
   text-align: center;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid rgb(218,218,223);
 `;
 const CompareModel = styled.div`
   width: 100%;
