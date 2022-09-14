@@ -106,7 +106,6 @@ function AirPodsIntroductions() {
           src="/Content_Introductions/airpods_3rd_large.jpg"
           alt="airpods_3rd_large"
         />
-        
         <AirPodsContent>
           <h2 css="font-size: 120px">AirPods</h2>
           <h3>3rd generation</h3>
