@@ -12,6 +12,7 @@ const NavBar = styled.div`
   margin: 0;
   text-align: center;
   white-space: nowrap;
+ 
 `;
 
 const NavItem = styled.button`

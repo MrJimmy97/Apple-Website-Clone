@@ -22,36 +22,18 @@ const ProductBarButton = styled.button`
   &:active {
     color: rgb(65, 141, 217);
   }
-  & img {
+  & > img {
     margin-bottom: 4px;
   }
-  & .AirPods2nd {
-    width: 35px;
-  }
-  & .AirPods3rd {
-    width: 32px;
-  }
-  & .AirPodsPro {
-    width: 40px;
-  }
-  & .AirPodsMax {
-    width: 35px;
-  }
-  & .AppleMusic {
-    width: 34px;
-  }
-  & .Compare {
-    width: 44px;
 
-    @keyframes left-to-center {
-      from {
-        transform: translateX(200px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0px);
-        opacity: 1;
-      }
+  @keyframes left-to-center {
+    from {
+      transform: translateX(200px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0px);
+      opacity: 1;
     }
   }
 `;
@@ -59,11 +41,7 @@ function ProductBar() {
   return (
     <NavBar>
       <ProductBarButton>
-        <img
-          css='width: 35px'
-          src="/NavBar/AirPods_2nd.png"
-          alt="AirPods2nd"
-        />
+        <img css="width: 35px" src="/header_NavBar/AirPods_2nd.png" alt="AirPods2nd" />
         <div>
           AirPods
           <br />
@@ -71,11 +49,7 @@ function ProductBar() {
         </div>
       </ProductBarButton>
       <ProductBarButton>
-        <img
-          className="AirPods3rd"
-          src="/NavBar/AirPods_3rd.png"
-          alt="AirPods3nd"
-        />
+        <img css="width: 32px" src="/header_NavBar/AirPods_3rd.png" alt="AirPods3nd" />
         <div>
           AirPods <br />
           3rd Generation
@@ -83,31 +57,26 @@ function ProductBar() {
       </ProductBarButton>
       <ProductBarButton>
         <img
-          className="AirPodsPro"
-          src="/NavBar/AirPodsPro2nd.png"
+          css="width: 40px"
+          src="/header_NavBar/AirPodsPro2nd.png"
           alt="AirPodsPro2nd"
         />
-        <div>AirPods Pro<br />
-          2nd Generation</div>
+        <div>
+          AirPods Pro
+          <br />
+          2nd Generation
+        </div>
       </ProductBarButton>
       <ProductBarButton>
-        <img
-          className="AirPodsMax"
-          src="/NavBar/AirPodsMax.png"
-          alt="AirPodsMax"
-        />
+        <img css="width: 35px" src="/header_NavBar/AirPodsMax.png" alt="AirPodsMax" />
         <div>AirPods Max</div>
       </ProductBarButton>
       <ProductBarButton>
-        <img className="Compare" src="/NavBar/Compare.png" alt="Compare" />
+        <img css="width: 40px" src="/header_NavBar/Compare.png" alt="Compare" />
         <div>Compare</div>
       </ProductBarButton>
       <ProductBarButton>
-        <img
-          className="AppleMusic"
-          src="/NavBar/AppleMusic.png"
-          alt="AppleMusic"
-        />
+        <img css="width: 34px" src="/header_NavBar/AppleMusic.png" alt="AppleMusic" />
         <div>Apple Music</div>
       </ProductBarButton>
     </NavBar>

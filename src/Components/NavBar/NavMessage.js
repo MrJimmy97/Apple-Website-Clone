@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import GeneralButton from "../GeneralButton";
+import ArrowButton from "../ReusesableComponents/ArrowButton";
 
 const Message = styled.p`
   text-align: center;
@@ -39,7 +39,7 @@ function NavMessage() {
   return (
     <Message>
       Get 6 months of Apple Music free with your AirPods.*
-      <GeneralButton>Learn more</GeneralButton>
+      <ArrowButton>Learn more</ArrowButton>
     </Message>
   );
 };
