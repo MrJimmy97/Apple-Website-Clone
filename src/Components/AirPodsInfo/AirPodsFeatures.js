@@ -145,10 +145,7 @@ function AirPodsFeatures() {
       <FeaturesBar ref={featuresBarRef} onScroll={ScrollHandler}>
         {airPodsFeatures.map((featuredata) => (
           <AirPodsFeature
-            title={featuredata.title}
-            imageScr={featuredata.imageScr}
-            imageAlt={featuredata.imageAlt}
-            content={featuredata.content}
+            data ={featuredata}
             key={featuredata.key}
           />
         ))}

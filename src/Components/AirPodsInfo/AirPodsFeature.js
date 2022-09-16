@@ -94,7 +94,7 @@ const CrossButton = styled.button`
   }
 `;
 
-function AirPodsFeature({ imageScr, imageAlt, content, title }) {
+function AirPodsFeature({data:{ imageScr, imageAlt, content, title }}) {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
