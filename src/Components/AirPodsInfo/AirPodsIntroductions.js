@@ -6,8 +6,9 @@ import {
   faCirclePlay,
   faCirclePause,
 } from "@fortawesome/free-regular-svg-icons";
+import airPodsData from "../airPodsData";
 
-const IndroductionContainer = styled.div`
+const Section = styled.div`
   background: linear-gradient(white 0%, transparent 10%);
   margin: 0;
   display: flex;
@@ -38,20 +39,6 @@ const PlayButton = styled.button`
   }
 `;
 
-const AirPodsContent = styled.div`
-  text-align: center;
-  & > h2 {
-    margin: 0px 0 4px 0;
-  }
-  & > h3 {
-    margin: 0 0 4px 0;
-    font-size: 20px;
-  }
-  & > div {
-    font-size: 20px;
-  }
-`;
-
 const AirPods3rd = styled.img`
   top: -10%;
   left: 3%;
@@ -72,6 +59,33 @@ const AirPodsMax = styled.img`
   width: 470px;
 `;
 
+const Content = styled.div`
+  text-align: center;
+  position: relative;
+  color: ${(props) => (props.isBlackTheme ? "white" : "black")};
+  font-size: 20px;
+  & > h2,
+  h3 {
+    margin: 0px 0 4px 0;
+  }
+`;
+
+function AirPodsContent({
+  size,
+  isBlackTheme,
+  productName,
+  generation,
+  price,
+}) {
+  return (
+    <Content isBlackTheme={isBlackTheme}>
+      <h2 css={size}>{productName}</h2>
+      <h3>{generation}</h3>
+      <div>{price}</div>
+    </Content>
+  );
+}
+
 function AirPodsIntroductions() {
   const [isPlay, setPlayPause] = useState(true);
   const videoRef = useRef();
@@ -84,36 +98,37 @@ function AirPodsIntroductions() {
     setPlayPause((current) => !current);
   };
   return (
-    <IndroductionContainer>
-      <AirPodsIntroduction blackColorTheme = {true}>
+    <Section>
+      <AirPodsIntroduction isBlackTheme={true}>
         <VideoBackground ref={videoRef} autoPlay muted loop>
           <source
             src="/Content_Introductions/AirPodsPro_Video.mp4"
             type="video/mp4"
           />
         </VideoBackground>
-        <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods Pro</h2>
-          <div>HK$1,849</div>
-        </AirPodsContent>
+        <AirPodsContent
+          productName={airPodsData[2].productName}
+          price={airPodsData[2].price}
+          isBlackTheme={true}
+          size="font-size: 120px"
+        />
         <PlayButton onClick={PlayPauseHandler}>
           <FontAwesomeIcon icon={isPlay ? faCirclePause : faCirclePlay} />
         </PlayButton>
       </AirPodsIntroduction>
-
-      <AirPodsIntroduction blackColorTheme = {false}>
+      <AirPodsIntroduction isBlackTheme={false}>
         <AirPods3rd
           src="/Content_Introductions/airpods_3rd_large.jpg"
           alt="airpods_3rd_large"
         />
-        <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods</h2>
-          <h3>3rd generation</h3>
-          <div>From HK$1,399</div>
-        </AirPodsContent>
+        <AirPodsContent
+          productName={airPodsData[1].productName}
+          generation={airPodsData[1].generation}
+          price={airPodsData[1].price}
+          size="font-size: 120px"
+        />
       </AirPodsIntroduction>
-
-      <AirPodsIntroduction blackColorTheme = {false}>
+      <AirPodsIntroduction isBlackTheme={false}>
         {/* l:366px r:319px  */}
         <AirPods2ndLeft
           src="/Content_Introductions/airpods_2nd_left_large.png"
@@ -123,24 +138,27 @@ function AirPodsIntroductions() {
           src="/Content_Introductions/airpods_2nd_right_large.png"
           alt="airpods_2nd_right_large"
         />
-        <AirPodsContent>
-          <h2 css="font-size: 120px">AirPods</h2>
-          <h3>2nd generation</h3>
-          <div>HK$1,099</div>
-        </AirPodsContent>
+        <AirPodsContent
+          productName={airPodsData[0].productName}
+          generation={airPodsData[0].generation}
+          price={airPodsData[0].price}
+          isBlackTheme={false}
+          size="font-size: 120px"
+        />
       </AirPodsIntroduction>
-
-      <AirPodsIntroduction blackColorTheme = {false}>
-        <AirPodsContent>
-          <h2 css="font-size: 180px">AirPods Max</h2>
-          <div>HK$4,599</div>
-        </AirPodsContent>
+      <AirPodsIntroduction isBlackTheme={false}>
+        <AirPodsContent
+          productName={airPodsData[3].productName}
+          price={airPodsData[3].price}
+          blackColorTheme={false}
+          size="font-size: 180px"
+        />
         <AirPodsMax
           src="/Content_Introductions/airpods_max_large.png"
           alt="airpods_max_large"
         />
       </AirPodsIntroduction>
-    </IndroductionContainer>
+    </Section>
   );
 }
 
