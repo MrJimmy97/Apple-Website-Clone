@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
 
-const LearnMoreButton = styled.button`
+const Container = styled.button`
   border: none;
   background-color: transparent;
-  color: rgb(65, 141, 217);
+  color:  ${(props) => (props.isBlackTheme ? "white" : "rgb(65, 141, 217)")};
   padding-left: 2px;
   cursor: pointer;
 `;
@@ -18,13 +18,13 @@ const NoSelected = styled.span`
   -webkit-user-select: none;/* Safari */
 `;
 
-function GeneralButton(props) {
+function ArrowButton(props) {
   return (
-    <LearnMoreButton className={props.className}>
+    <Container css={props.fontSize} isBlackTheme={props.isBlackTheme}>
       <Label>{props.children}</Label>
       <NoSelected>{" >"}</NoSelected>
-    </LearnMoreButton>
+    </Container>
   );
 }
 
-export default GeneralButton;
+export default ArrowButton;
