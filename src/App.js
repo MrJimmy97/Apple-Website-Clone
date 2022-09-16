@@ -1,8 +1,9 @@
 import NavBar from "./Components/NavBar/NavBar";
 import AirPodsIntroductions from "./Components/AirPodsInfo/AirPodsIntroductions";
-import MessageTitle from "./Components/MessageTitle";
+import MessageTitle from "./Components/ReusesableComponents/MessageTitle";
 import AirPodsFeatures from "./Components/AirPodsInfo/AirPodsFeatures";
 import AirPodsCompares from "./Components/AirPodsInfo/AirPodsCompares";
+import Services from "./Components/ServicesAndNotes/Services";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         right for you?
       </MessageTitle>
       <AirPodsCompares/>
-      <p>sdas</p>
+      <Services/>
     </div>
   );
 }

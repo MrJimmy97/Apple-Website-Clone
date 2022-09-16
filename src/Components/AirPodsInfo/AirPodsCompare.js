@@ -1,65 +1,107 @@
-import styled from "styled-components";
-
+import styled, { css } from "styled-components/macro";
+import ArrowButton from "../ReusesableComponents/ArrowButton";
+import BuyButton from "../ReusesableComponents/BuyButton";
 
 const List = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 20px;
+  width: 230px;
+  margin-bottom: 80px;
 `;
 const AirPodsInfo = styled.div`
-  border-bottom: 2px solid grey;
-  padding:0 16px 10px;
-
+  border-bottom: 1px solid rgb(212, 212, 212);
+  width: 100%;
+  padding-bottom: 30px;
+  display: block;
+`;
+const AirPodsSeries = styled.div`
+  padding-bottom: 8px;
+  align-items: center;
+  height: 35px;
 `;
 const ImageButton = styled.div`
+  height: 235px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding-bottom: 16px;
-  /* width:; */
+  margin-bottom: 50px;
   cursor: pointer;
 `;
-const AirPodsName = styled.div`
-  padding-bottom: 8px;
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
   align-items: center;
 `;
-const AirPodsSeries = styled.div`
-  font-weight: bold;
-  font-size: 8px;
+const AirPodsSpecs = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
-const Generation = styled.div`
-  font-size: 6px;
-  color: grey;
+
+const Specification = styled.div`
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
-const Price = styled.div`
-font-size:8px;
-`
 
-
-
-function AirPodsCompare(props) {
+function AirPodsCompare({
+  productData: {
+    specsImageScr,
+    specsImageWidthAndHeight,
+    specsImageAlt,
+    productName,
+    generation,
+    price,
+    specifications,
+  },
+}) {
   return (
     <List>
-      {/* <AirPodsInfo>
+      <AirPodsInfo>
         <ImageButton>
-          <img src={compare.imgScr} alt={compare.imgAlt} />
+          <img
+            src={specsImageScr}
+            css={specsImageWidthAndHeight}
+            alt={specsImageAlt}
+          />
         </ImageButton>
-        <AirPodsName>
-          <AirPodsSeries>{compare.series}</AirPodsSeries>
-            <Generation>{compare.generation}</Generation>
-        </AirPodsName>
-        <Price></Price>
-        <BuyButton></BuyButton>
-        <LearnMoreButton></LearnMoreButton>
+        <AirPodsSeries>
+          <div css="font-weight: bold;font-size: 20px;">{productName}</div>
+          <div css="font-size: 15px;color: grey;">{generation}</div>
+        </AirPodsSeries>
+        <div css="margin:15px 0">{price}</div>
+        <ButtonContainer>
+          <BuyButton isLargeSize={false} />
+          <ArrowButton fontSize="font-size:14px;">Learn more</ArrowButton>
+        </ButtonContainer>
       </AirPodsInfo>
-      <CompareFeatures>
-        <SpatialAudio></SpatialAudio>
-        <NoiseCancellation></NoiseCancellation>
-        <WaterResistant></WaterResistant>
-        <Charging></Charging>
-        <Duaration></Duaration>
-      </CompareFeatures> */}
+      <AirPodsSpecs>
+        {specifications.map((data) => {
+          if (data.img) {
+            return (
+              <Specification key={data.key}>
+                <div >
+                  <img src={data.img} alt={data.alt} css={data.imageWidthAndHeight}/>
+                </div>
+                <>{data.description}</>
+              </Specification>
+            );
+          } else if (data.time) {
+            return (
+              <Specification key={data.key}>
+                <div css="font-weight:bold;font-size:40px">{data.time} hrs</div>
+                <>{data.description}</>
+              </Specification>
+            );
+          } else {
+            return <Specification key={data.key}>&#8212;</Specification>;
+          }
+        })}
+      </AirPodsSpecs>
     </List>
   );
 }

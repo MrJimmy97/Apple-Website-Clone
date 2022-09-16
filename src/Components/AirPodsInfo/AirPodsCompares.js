@@ -1,54 +1,38 @@
 import styled, { css } from "styled-components/macro";
+import airPodsData from "../airPodsData";
+import ArrowButton from "../ReusesableComponents/ArrowButton";
 import AirPodsCompare from "./AirPodsCompare";
-import GeneralButton from "../GeneralButton";
 
-const ComparesContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
 
-const Compares = styled.div`
-  text-align: center;
+const Container = styled.div`
   width: 980px;
   border-bottom: 2px solid rgb(218, 218, 223);
+  padding-bottom: 60px;
+  display: block;
+  text-align: center;
 `;
-const CompareModel = styled.div`
-  width: 100%;
+const AirPodsList = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 `;
-
-const AirPodsData = [
-  {
-    key: "a1",
-    imageScr: "./Content_specifications/AirPods2nd_spec.png",
-    imageAlt: "AirPods2nd",
-    name: "AirPods",
-    generation: "2nd generation",
-    price: "HK$1,099",
-    specifications: [
-      { key: "a2", imageScr: "", imageAlt: "", description: "" },
-      { key: "a3", imageScr: "", imageAlt: "", description: "" },
-      { key: "a4", imageScr: "", imageAlt: "", description: "" },
-      { key: "a5", imageScr: "", imageAlt: "", description: "" },
-      { key: "a6", imageScr: "", imageAlt: "", description: "" },
-    ],
-  },
-];
-
-// &#9866
 
 function AirPodsCompares() {
   return (
-    <ComparesContainer>
-      <Compares>
-        <CompareModel>Testing</CompareModel>
-        <GeneralButton css="font-size: 20px; padding-top: 60px; padding-bottom: 60px;">
+    <div
+      css=" width: 100%; display: flex;justify-content: center;"
+    >
+      <Container>
+        <AirPodsList>
+          {airPodsData.map((data) => (
+            <AirPodsCompare productData={data} key={data.key} />
+          ))}
+        </AirPodsList>
+        <ArrowButton fontSize="font-size: 20px">
           Compare all AirPods models
-        </GeneralButton>
-      </Compares>
-    </ComparesContainer>
+        </ArrowButton>
+      </Container>
+    </div>
   );
 }
 
