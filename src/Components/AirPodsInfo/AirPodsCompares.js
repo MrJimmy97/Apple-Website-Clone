@@ -8,7 +8,6 @@ const Container = styled.div`
   width: 980px;
   border-bottom: 2px solid rgb(218, 218, 223);
   padding-bottom: 60px;
-  display: block;
   text-align: center;
 `;
 const AirPodsList = styled.div`
