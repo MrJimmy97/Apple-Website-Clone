@@ -15,6 +15,9 @@ const Service = styled.div`
   &:hover  {
     cursor: pointer;
   }
+  &:hover span{
+    text-decoration:underline;
+  }
 `;
 
 const Content = styled.div`
