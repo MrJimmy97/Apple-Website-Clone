@@ -4,6 +4,7 @@ import MessageTitle from "./Components/ReusesableComponents/MessageTitle";
 import AirPodsFeatures from "./Components/AirPodsInfo/AirPodsFeatures";
 import AirPodsCompares from "./Components/AirPodsInfo/AirPodsCompares";
 import Services from "./Components/ServicesAndNotes/Services";
+import Notes from "./Components/ServicesAndNotes/Notes";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       </MessageTitle>
       <AirPodsCompares/>
       <Services/>
+      <Notes/>
     </div>
   );
 }
