@@ -5,6 +5,8 @@ import AirPodsFeatures from "./Components/AirPodsInfo/AirPodsFeatures";
 import AirPodsCompares from "./Components/AirPodsInfo/AirPodsCompares";
 import Services from "./Components/ServicesAndNotes/Services";
 import Notes from "./Components/ServicesAndNotes/Notes";
+import AboutApple from "./Components/AboutApple/AboutApple";
+
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
       <AirPodsCompares/>
       <Services/>
       <Notes/>
+      <AboutApple/>
     </div>
   );
 }
