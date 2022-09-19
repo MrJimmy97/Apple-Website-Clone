@@ -29,14 +29,15 @@ const ProductButtonBox = styled.span`
   left: calc(50%-113px);
 `;
 
-function AirPodsIntroduction(props) {
+
+function AirPodsIntroduction({children, isBlackTheme}) {
   return (
     <Container>
-      {props.children}
+      {children}
       <ProductButtonBox>
-        <BuyButton isBlackTheme={props.isBlackTheme} isLargeSize={true} />
+        <BuyButton isBlackTheme={isBlackTheme} isLargeSize={true} />
         <ArrowButton
-          isBlackTheme={props.isBlackTheme}
+          isBlackTheme={isBlackTheme}
           fontSize="font-size:20px"
         >
           Learn more

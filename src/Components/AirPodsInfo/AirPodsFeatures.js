@@ -130,8 +130,7 @@ function AirPodsFeatures() {
   const [isLeft, setLeft] = useState(true);
   const [isRight, setRight] = useState(false);
 
-  const ScrollHandler = (event) => {
-    console.log(event.target.scrollLeft,event.target.clientWidth)
+  const scrollHandler = (event) => {
     setLeft(event.target.scrollLeft === 0);
     if (event.target.clientWidth >= 1200) {
       setRight(event.target.scrollLeft === 1600);
@@ -140,35 +139,34 @@ function AirPodsFeatures() {
     }
   };
 
+  const scrollLeftHandler = () => {
+    if(featuresBarRef.current.scrollLeft%400 === 0){
+    featuresBarRef.current.scrollLeft -= 400;}
+  };
+  const scrollRightHandler = () => {
+    if(featuresBarRef.current.scrollLeft%400 === 0){
+      featuresBarRef.current.scrollLeft += 400;}
+    }
+  ;
+
   return (
     <div>
-      <FeaturesBar ref={featuresBarRef} onScroll={ScrollHandler}>
+      <FeaturesBar ref={featuresBarRef} onScroll={scrollHandler}>
         {airPodsFeatures.map((featuredata) => (
-          <AirPodsFeature
-            data ={featuredata}
-            key={featuredata.key}
-          />
+          <AirPodsFeature data={featuredata} key={featuredata.key} />
         ))}
         <Space />
       </FeaturesBar>
       <ScrollButtons>
         <ScrollLeftButton
           disabled={isLeft}
-          onClick={() =>
-            setTimeout(() => {
-              featuresBarRef.current.scrollLeft -= 400;
-            }, 100)
-          }
+          onClick={() => setTimeout(scrollLeftHandler, 200)}
         >
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
         </ScrollLeftButton>
         <ScrollRightButton
           disabled={isRight}
-          onClick={() =>
-            setTimeout(() => {
-              featuresBarRef.current.scrollLeft += 400;
-            }, 100)
-          }
+          onClick={() => setTimeout(scrollRightHandler, 200)}
         >
           <FontAwesomeIcon icon={faArrowAltCircleRight} />
         </ScrollRightButton>

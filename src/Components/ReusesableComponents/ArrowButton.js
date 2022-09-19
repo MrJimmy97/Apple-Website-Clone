@@ -18,10 +18,10 @@ const NoSelected = styled.span`
   -webkit-user-select: none;/* Safari */
 `;
 
-function ArrowButton(props) {
+function ArrowButton({children, fontSize, isBlackTheme}) {
   return (
-    <Container css={props.fontSize} isBlackTheme={props.isBlackTheme}>
-      <Label>{props.children}</Label>
+    <Container css={fontSize} isBlackTheme={isBlackTheme}>
+      <Label>{children}</Label>
       <NoSelected>{" >"}</NoSelected>
     </Container>
   );
