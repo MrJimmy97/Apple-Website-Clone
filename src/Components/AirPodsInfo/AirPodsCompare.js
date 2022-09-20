@@ -57,7 +57,7 @@ function AirPodsCompare({
     generation,
     price,
     specifications,
-  },
+  }
 }) {
   return (
     <List>

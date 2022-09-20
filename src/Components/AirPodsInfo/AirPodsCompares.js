@@ -3,7 +3,6 @@ import airPodsData from "../airPodsData";
 import ArrowButton from "../ReusesableComponents/ArrowButton";
 import AirPodsCompare from "./AirPodsCompare";
 
-
 const Container = styled.div`
   width: 980px;
   border-bottom: 2px solid rgb(218, 218, 223);
@@ -18,9 +17,7 @@ const AirPodsList = styled.div`
 
 function AirPodsCompares() {
   return (
-    <div
-      css=" width: 100%; display: flex;justify-content: center;"
-    >
+    <div>
       <Container>
         <AirPodsList>
           {airPodsData.map((data) => (

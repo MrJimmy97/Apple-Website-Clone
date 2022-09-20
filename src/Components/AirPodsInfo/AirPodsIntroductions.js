@@ -40,8 +40,8 @@ const PlayButton = styled.button`
 `;
 
 const AirPods3rd = styled.img`
-  top: -10%;
-  left: 3%;
+  top: 0;
+  left: calc(50% - 1028px / 2);
 `;
 
 const AirPods2ndLeft = styled.img`
