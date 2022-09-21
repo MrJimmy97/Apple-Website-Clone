@@ -12,29 +12,33 @@ const NavBar = styled.div`
   margin: 0;
   text-align: center;
   white-space: nowrap;
- 
 `;
 
 const NavItem = styled.button`
-  padding: 4px 4px;
-  margin: 9px 18px;
-  font-size: x-small;
-  background-color: transparent;
-  border: none;
-  color: rgb(170, 170, 170);
-  white-space: nowrap;
-  cursor: pointer;
-  &:hover,
-  &:active {
-    color: rgb(211, 211, 211);
+  display: none;
+  @media (min-width: 1020px) {
+    display: inline;
+    padding: 4px 4px;
+    margin: 9px 18px;
+    font-size: 10px;
+    background-color: transparent;
+    border: none;
+    color: rgb(170, 170, 170);
+    white-space: nowrap;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      color: rgb(211, 211, 211);
+    }
   }
 `;
+
 
 function MainNavBar() {
   return (
     <NavBar>
       <NavItem>
-        <FontAwesomeIcon css='font-size: 15px' icon={faAppleWhole} />
+        <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
       </NavItem>
       <NavItem>Store</NavItem>
       <NavItem>Mac</NavItem>
@@ -47,14 +51,12 @@ function MainNavBar() {
       <NavItem>Accessories</NavItem>
       <NavItem>Support</NavItem>
       <NavItem>
-        <FontAwesomeIcon
-          css='font-size: 15px'
-          icon={faMagnifyingGlass}
-        />
+        <FontAwesomeIcon css="font-size: 15px" icon={faMagnifyingGlass} />
       </NavItem>
       <NavItem>
-        <FontAwesomeIcon css='font-size: 15px' icon={faShoppingBag} />
+        <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
       </NavItem>
+      
     </NavBar>
   );
 }
