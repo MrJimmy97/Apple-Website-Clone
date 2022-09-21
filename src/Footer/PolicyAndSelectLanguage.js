@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/macro";
 
 const Container = styled.div`
-  margin: 0 2%;
+  margin: 0 2% 20px;
   width: 980px;
   display: flex;
 

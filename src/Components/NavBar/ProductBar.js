@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 
 const NavBar = styled.div`
   background-color: white;
@@ -41,7 +41,11 @@ function ProductBar() {
   return (
     <NavBar>
       <ProductBarButton>
-        <img css="width: 35px" src="/header_NavBar/AirPods_2nd.png" alt="AirPods2nd" />
+        <img
+          css="width: 35px"
+          src="/header_NavBar/AirPods_2nd.png"
+          alt="AirPods2nd"
+        />
         <div>
           AirPods
           <br />
@@ -49,7 +53,11 @@ function ProductBar() {
         </div>
       </ProductBarButton>
       <ProductBarButton>
-        <img css="width: 32px" src="/header_NavBar/AirPods_3rd.png" alt="AirPods3nd" />
+        <img
+          css="width: 32px"
+          src="/header_NavBar/AirPods_3rd.png"
+          alt="AirPods3nd"
+        />
         <div>
           AirPods <br />
           3rd Generation
@@ -68,7 +76,11 @@ function ProductBar() {
         </div>
       </ProductBarButton>
       <ProductBarButton>
-        <img css="width: 35px" src="/header_NavBar/AirPodsMax.png" alt="AirPodsMax" />
+        <img
+          css="width: 35px"
+          src="/header_NavBar/AirPodsMax.png"
+          alt="AirPodsMax"
+        />
         <div>AirPods Max</div>
       </ProductBarButton>
       <ProductBarButton>
@@ -76,7 +88,11 @@ function ProductBar() {
         <div>Compare</div>
       </ProductBarButton>
       <ProductBarButton>
-        <img css="width: 34px" src="/header_NavBar/AppleMusic.png" alt="AppleMusic" />
+        <img
+          css="width: 34px"
+          src="/header_NavBar/AppleMusic.png"
+          alt="AppleMusic"
+        />
         <div>Apple Music</div>
       </ProductBarButton>
     </NavBar>

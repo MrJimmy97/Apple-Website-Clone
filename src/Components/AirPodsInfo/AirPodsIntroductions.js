@@ -61,6 +61,7 @@ const AirPodsMax = styled.img`
 
 const Content = styled.div`
   text-align: center;
+  white-space: nowrap;
   position: relative;
   color: ${(props) => (props.isBlackTheme ? "white" : "black")};
   font-size: 20px;
