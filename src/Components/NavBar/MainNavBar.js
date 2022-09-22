@@ -1,23 +1,31 @@
 import styled, { css } from "styled-components/macro";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAppleWhole,
   faShoppingBag,
   faMagnifyingGlass,
+  faBars,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = styled.div`
-  background-color: rgb(56, 52, 52);
+  background-color: ${(props) =>
+    props.isNavClicked ? "black" : "rgba(0, 0, 0, 0.8)"};
   width: 100%;
+  height: 48px;
+  position: relative;
+  z-index: 2;
   margin: 0;
-  text-align: center;
-  white-space: nowrap;
-`;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 
-const NavItem = styled.button`
-  display: none;
   @media (min-width: 1020px) {
-    display: inline;
+    justify-content: center;
+  }
+
+  & > button {
     padding: 4px 4px;
     margin: 9px 18px;
     font-size: 10px;
@@ -26,38 +34,158 @@ const NavItem = styled.button`
     color: rgb(170, 170, 170);
     white-space: nowrap;
     cursor: pointer;
-    &:hover,
-    &:active {
+    :hover {
       color: rgb(211, 211, 211);
     }
   }
 `;
 
+const NavItem = styled.button`
+  display: none;
+  @media (min-width: 1020px) {
+    display: inline;
+  }
+`;
+const SmallNavBarItem = styled.button`
+  display: inline;
+  position:re;
+  z-index: 2;
+  @media (min-width: 1020px) {
+    display: none;
+  }
+`;
+const ClickedNavBar = styled.div`
+  position: absolute;
+  z-index: 1;
+  height: 93.5%;
+  width: 100%;
+  background-color: black;
+  animation: ${(props) =>
+    props.isNavClicked ? "slideIn 0.5s forwards" : "slideOut 0.5s forwards"};
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%) 
+    }
+    to {
+      transform: translateY(0%)
+    }
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateY(0%) 
+    }
+    to {
+      transform: translateY(-100%)
+    }
+  }
+`;
+
+const Input = styled.input`
+  font-family: FontAwesome;
+  background-color: rgb(32, 28, 28);
+  border: none;
+  width: 80%;
+  border-radius: 14px;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 12px;
+  &:focus {
+    outline: none;
+    color: white;
+  }
+`;
+
+const ClickedNavBarButton = styled.button`
+  border-bottom: 1px solid rgb(49, 49, 51);
+  background: transparent;
+  padding: 12px 0;
+  margin: 0;
+  width: 80%;
+  text-align: left;
+  font-size: 16px;
+  color: rgb(160, 160, 160);
+  cursor: pointer;
+  &:last-of-type {
+    border-bottom: none;
+  }
+  &:hover {
+    color: rgb(195, 195, 195);
+  }
+`;
+
+const navBarLink = [
+  { title: "Store", key: "aa1" },
+  { title: "Mac", key: "aa2" },
+  { title: "iPad", key: "aa3" },
+  { title: "iPhone", key: "aa4" },
+  { title: "Watch", key: "aa5" },
+  { title: "AirPods", key: "aa6" },
+  { title: "TV & Home", key: "aa7" },
+  { title: "Only On Apple", key: "aa8" },
+  { title: "Accessories", key: "aa9" },
+  { title: "Support", key: "aa10" },
+];
 
 function MainNavBar() {
+  const [isNavClicked, setIsClickedNav] = useState(false);
+  console.log(document.body.style.overflow, isNavClicked);
+
+  const navClickedHandler = () => {
+    setIsClickedNav((current) => !current);
+    if (isNavClicked) {
+      document.body.style.overflow = "auto";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+    console.log(document.body.style.overflow, isNavClicked);
+  };
   return (
-    <NavBar>
-      <NavItem>
-        <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
-      </NavItem>
-      <NavItem>Store</NavItem>
-      <NavItem>Mac</NavItem>
-      <NavItem>iPad</NavItem>
-      <NavItem>iPhone</NavItem>
-      <NavItem>Watch</NavItem>
-      <NavItem>AirPods</NavItem>
-      <NavItem>TV & Home</NavItem>
-      <NavItem>Only On Apple</NavItem>
-      <NavItem>Accessories</NavItem>
-      <NavItem>Support</NavItem>
-      <NavItem>
-        <FontAwesomeIcon css="font-size: 15px" icon={faMagnifyingGlass} />
-      </NavItem>
-      <NavItem>
-        <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
-      </NavItem>
-      
-    </NavBar>
+    <>
+      <NavBar isNavClicked={isNavClicked}>
+        <SmallNavBarItem onClick={navClickedHandler}>
+          <FontAwesomeIcon
+            css={isNavClicked ? "font-size: 20px" : "font-size: 15px"}
+            icon={isNavClicked ? faXmark : faBars}
+          />
+        </SmallNavBarItem>
+        <SmallNavBarItem>
+          <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
+        </SmallNavBarItem>
+        {!isNavClicked ? (
+          <SmallNavBarItem>
+            <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
+          </SmallNavBarItem>
+        ) : (
+          <div css="width:73px" />
+        )}
+        <NavItem>
+          <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
+        </NavItem>
+        {navBarLink.map((data) => (
+          <NavItem key={data.key}>{data.title}</NavItem>
+        ))}
+        <NavItem>
+          <FontAwesomeIcon css="font-size: 15px" icon={faMagnifyingGlass} />
+        </NavItem>
+        <NavItem>
+          <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
+        </NavItem>
+      </NavBar>
+      {isNavClicked && (
+        <ClickedNavBar isNavClicked={isNavClicked}>
+          <div css="text-align:center;border-bottom:1px solid rgb(49,49,51)">
+            <Input type="text" placeholder="&#xf002;   Search apple.com" />
+          </div>
+          <div css="display: flex;flex-direction:column;align-items: center;">
+            {navBarLink.map((data) => (
+              <ClickedNavBarButton key={data.key} >
+                {data.title}
+              </ClickedNavBarButton>
+            ))}
+          </div>
+        </ClickedNavBar>
+      )}
+    </>
   );
 }
 

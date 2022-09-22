@@ -1,6 +1,11 @@
+html { 
+  height: 100vh; 
+  overflow: auto;
+}
+
 body {
   margin: 0;
   background-color: rgba(245,245,247,255);
   font-family:sans-serif;
+  height: calc(100vh + 0.3px); 
 }
-
