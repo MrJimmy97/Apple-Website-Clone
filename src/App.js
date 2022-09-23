@@ -10,7 +10,7 @@ import Footer from "./Footer/Footer";
 
 function App() {
   return (
-    <div >
+    <div>
       <NavBar />
       <AirPodsIntroductions />
       <MessageTitle>

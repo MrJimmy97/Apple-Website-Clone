@@ -4,7 +4,7 @@ import BuyButton from "../ReusesableComponents/BuyButton";
 
 const Container = styled.div`
   width: 96%;
-  height: 680px;
+  height: 600px;
   margin-top: 30px;
   border-radius: 20px;
   overflow: hidden;
@@ -14,23 +14,33 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: white;
-
   & > img {
     position: absolute;
+  }
+  &:nth-of-type(1) {
+    height: 640px;
+    @media (min-width: 1020px) {
+      height: 820px;
+    }
+  }
+  @media (min-width: 1020px) {
+    height: 680px;
   }
 `;
 
 const ProductButtonBox = styled.span`
-  width: 230px;
+  width: 200px;
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 88%;
+  bottom: 5%;
   left: calc(50%-113px);
+  @media (min-width: 1020px) {
+    width:230px
+  }
 `;
 
-
-function AirPodsIntroduction({children, isBlackTheme}) {
+function AirPodsIntroduction({ children, isBlackTheme }) {
   return (
     <Container>
       {children}
@@ -38,7 +48,7 @@ function AirPodsIntroduction({children, isBlackTheme}) {
         <BuyButton isBlackTheme={isBlackTheme} isLargeSize={true} />
         <ArrowButton
           isBlackTheme={isBlackTheme}
-          fontSize="font-size:20px"
+          fontSize="font-size:16px; @media (min-width: 1020px) {font-size:20px}"
         >
           Learn more
         </ArrowButton>

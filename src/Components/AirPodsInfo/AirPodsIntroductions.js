@@ -40,8 +40,14 @@ const PlayButton = styled.button`
 `;
 
 const AirPods3rd = styled.img`
-  top: 0;
-  left: calc(50% - 1028px / 2);
+  top: -6%;
+  left: calc(50% - 800px / 2);
+  width: 800px;
+  @media (min-width: 1020px) {
+    top: -7%;
+    left: calc(50% - 1028px / 2);
+    width: 1028px;
+  }
 `;
 
 const AirPods2ndLeft = styled.img`
@@ -111,7 +117,7 @@ function AirPodsIntroductions() {
           productName={airPodsData[2].productName}
           price={airPodsData[2].price}
           isBlackTheme={true}
-          size="font-size: 120px"
+          size="font-size:90px; @media (min-width: 1020px) {font-size:120px;}"
         />
         <PlayButton onClick={PlayPauseHandler}>
           <FontAwesomeIcon icon={isPlay ? faCirclePause : faCirclePlay} />
@@ -126,7 +132,7 @@ function AirPodsIntroductions() {
           productName={airPodsData[1].productName}
           generation={airPodsData[1].generation}
           price={airPodsData[1].price}
-          size="font-size: 120px"
+          size="font-size:90px; @media (min-width: 1020px) {font-size:120px;}"
         />
       </AirPodsIntroduction>
       <AirPodsIntroduction isBlackTheme={false}>
@@ -144,7 +150,7 @@ function AirPodsIntroductions() {
           generation={airPodsData[0].generation}
           price={airPodsData[0].price}
           isBlackTheme={false}
-          size="font-size: 120px"
+          size="font-size:90px; @media (min-width: 1020px) {font-size:120px;}"
         />
       </AirPodsIntroduction>
       <AirPodsIntroduction isBlackTheme={false}>
@@ -152,7 +158,7 @@ function AirPodsIntroductions() {
           productName={airPodsData[3].productName}
           price={airPodsData[3].price}
           blackColorTheme={false}
-          size="font-size: 180px"
+          size="font-size:110px; @media (min-width: 1020px) {font-size:180px;}"
         />
         <AirPodsMax
           src="/Content_Introductions/airpods_max_large.png"

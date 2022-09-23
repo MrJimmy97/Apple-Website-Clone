@@ -29,9 +29,14 @@ function BuyButton({ isLargeSize, isBlackTheme }) {
 
   if (isLargeSize) {
     size = css`
-      border-radius: 30px;
+      border-radius: 26px;
+      font-size: 16px;
+      padding: 12px 22px;
+      @media (min-width: 1020px) {
+        border-radius: 30px;
       font-size: 20px;
       padding: 12px 22px;
+      }
     `;
   } else {
     size = css`
