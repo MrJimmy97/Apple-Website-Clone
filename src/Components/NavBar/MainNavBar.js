@@ -11,7 +11,7 @@ import {
 
 const NavBar = styled.div`
   background-color: ${(props) =>
-    props.isNavClicked ? "black" : "rgba(0, 0, 0, 0.8)"};
+    props.isOpened ? "black" : "rgba(0, 0, 0, 0.8)"};
   width: 100%;
   height: 48px;
   position: relative;
@@ -48,7 +48,7 @@ const NavItem = styled.button`
 `;
 const SmallNavBarItem = styled.button`
   display: inline;
-  position:re;
+  position: re;
   z-index: 2;
   @media (min-width: 1020px) {
     display: none;
@@ -57,25 +57,25 @@ const SmallNavBarItem = styled.button`
 const ClickedNavBar = styled.div`
   position: absolute;
   z-index: 1;
-  height: 93.5%;
+  height: 100%;
   width: 100%;
   background-color: black;
   animation: ${(props) =>
-    props.isNavClicked ? "slideIn 0.5s forwards" : "slideOut 0.5s forwards"};
+    props.isOpened ? "slideIn 0.5s forwards" : "slideOut 0.5s forwards"};
   @keyframes slideIn {
     from {
-      transform: translateY(-100%) 
+      transform: translateY(-100%);
     }
     to {
-      transform: translateY(0%)
+      transform: translateY(0%);
     }
   }
   @keyframes slideOut {
     from {
-      transform: translateY(0%) 
+      transform: translateY(0%);
     }
     to {
-      transform: translateY(-100%)
+      transform: translateY(-100%);
     }
   }
 `;
@@ -127,31 +127,29 @@ const navBarLink = [
 ];
 
 function MainNavBar() {
-  const [isNavClicked, setIsClickedNav] = useState(false);
-  console.log(document.body.style.overflow, isNavClicked);
+  const [isOpened, setIsOpened] = useState(false);
 
-  const navClickedHandler = () => {
-    setIsClickedNav((current) => !current);
-    if (isNavClicked) {
-      document.body.style.overflow = "auto";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
-    console.log(document.body.style.overflow, isNavClicked);
-  };
   return (
     <>
-      <NavBar isNavClicked={isNavClicked}>
-        <SmallNavBarItem onClick={navClickedHandler}>
+      <NavBar isOpened={isOpened}>
+        <SmallNavBarItem
+          onClick={() =>
+            setIsOpened((current) => {
+              if (isOpened) document.body.style.overflow = "hidden";
+              else document.body.style.overflow = "auto";
+              return !current;
+            })
+          }
+        >
           <FontAwesomeIcon
-            css={isNavClicked ? "font-size: 20px" : "font-size: 15px"}
-            icon={isNavClicked ? faXmark : faBars}
+            css={isOpened ? "font-size: 20px" : "font-size: 15px"}
+            icon={isOpened ? faXmark : faBars}
           />
         </SmallNavBarItem>
         <SmallNavBarItem>
           <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
         </SmallNavBarItem>
-        {!isNavClicked ? (
+        {!isOpened ? (
           <SmallNavBarItem>
             <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
           </SmallNavBarItem>
@@ -171,14 +169,14 @@ function MainNavBar() {
           <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
         </NavItem>
       </NavBar>
-      {isNavClicked && (
-        <ClickedNavBar isNavClicked={isNavClicked}>
+      {isOpened && (
+        <ClickedNavBar isOpened={isOpened}>
           <div css="text-align:center;border-bottom:1px solid rgb(49,49,51)">
             <Input type="text" placeholder="&#xf002;   Search apple.com" />
           </div>
           <div css="display: flex;flex-direction:column;align-items: center;">
             {navBarLink.map((data) => (
-              <ClickedNavBarButton key={data.key} >
+              <ClickedNavBarButton key={data.key}>
                 {data.title}
               </ClickedNavBarButton>
             ))}
