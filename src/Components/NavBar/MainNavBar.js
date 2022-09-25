@@ -135,8 +135,8 @@ function MainNavBar() {
         <SmallNavBarItem
           onClick={() =>
             setIsOpened((current) => {
-              if (isOpened) document.body.style.overflow = "hidden";
-              else document.body.style.overflow = "auto";
+              if (isOpened) document.body.style.overflow = "auto";
+              else document.body.style.overflow = "hidden";
               return !current;
             })
           }

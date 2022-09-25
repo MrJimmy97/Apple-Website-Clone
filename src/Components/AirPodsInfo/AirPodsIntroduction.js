@@ -23,6 +23,13 @@ const Container = styled.div`
       height: 820px;
     }
   }
+  &:nth-of-type(4) {
+    height: 640px;
+    @media (min-width: 1020px) {
+      height: 746px;
+    }
+  }
+
   @media (min-width: 1020px) {
     height: 680px;
   }
@@ -36,7 +43,7 @@ const ProductButtonBox = styled.span`
   bottom: 5%;
   left: calc(50%-113px);
   @media (min-width: 1020px) {
-    width:230px
+    width: 230px;
   }
 `;
 
@@ -48,7 +55,7 @@ function AirPodsIntroduction({ children, isBlackTheme }) {
         <BuyButton isBlackTheme={isBlackTheme} isLargeSize={true} />
         <ArrowButton
           isBlackTheme={isBlackTheme}
-          fontSize="font-size:16px; @media (min-width: 1020px) {font-size:20px}"
+          fontSize="font-size:18px; @media (min-width: 1020px) {font-size:20px}"
         >
           Learn more
         </ArrowButton>

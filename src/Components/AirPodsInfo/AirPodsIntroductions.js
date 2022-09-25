@@ -52,17 +52,34 @@ const AirPods3rd = styled.img`
 
 const AirPods2ndLeft = styled.img`
   top: 10%;
-  left: calc(42% - 366px);
+  left: calc(42% - 255px);
+  width:255px;
+  @media (min-width: 1020px) {
+    top: 10%;
+    left: calc(42% - 366px);
+    width:366px;
+  }
 `;
 const AirPods2ndRight = styled.img`
   top: 40%;
   left: 56%;
+  width:230px;
+  @media (min-width: 1020px) {
+    top: 40%;
+    left: 56%;
+    width:319px;
+  }
 `;
 
 const AirPodsMax = styled.img`
-  top: 10%;
-  left: calc(50% - 470px / 2);
-  width: 470px;
+  top: 25%;
+  left: calc(50% - 307px / 2);
+  width: 307px;
+  @media (min-width: 1020px) {
+    top: 10%;
+    left: calc(50% - 470px / 2);
+    width: 470px;
+  }
 `;
 
 const Content = styled.div`
