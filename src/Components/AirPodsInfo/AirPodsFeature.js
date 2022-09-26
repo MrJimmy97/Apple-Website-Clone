@@ -6,11 +6,14 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 const Content = styled.div`
   background-color: white;
   border-radius: 16px;
-  height: 484px;
-  min-width: 380px;
+  height: 450px;
+  min-width: 330px;
   margin-left: 20px;
   position: relative;
-
+  @media (min-width: 1020px) {
+    height: 484px;
+    min-width: 380px;
+  }
   @keyframes fadein {
     from {
       opacity: 0;
@@ -22,13 +25,14 @@ const Content = styled.div`
 `;
 
 const Image = styled.div`
-  width: 380px;
-  height: 375px;
+  height: 340px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   animation: fadein 0.5s forwards;
-
+  @media (min-width: 1020px) {
+    height: 380px;
+  }
   & > img {
     margin: 0 auto;
   }
@@ -64,7 +68,7 @@ const CrossButton = styled.button`
   position: absolute;
   background: transparent;
   border: none;
-  font-size: 40px;
+  font-size: 30px;
   left: 80%;
   top: 85%;
   cursor: pointer;
@@ -73,6 +77,9 @@ const CrossButton = styled.button`
       ? "plusButton-to-crossButton 0.5s forwards"
       : "crossButton-to-plusButton 0.5s forwards"};
 
+  @media (min-width: 1020px) {
+    font-size: 40px;
+  }
   @keyframes crossButton-to-plusButton {
     0% {
       transform: rotate(90deg);
@@ -94,7 +101,9 @@ const CrossButton = styled.button`
   }
 `;
 
-function AirPodsFeature({data:{ imageScr, imageAlt, content, title }}) {
+function AirPodsFeature({
+  data: { image, description, content, title, css },
+}) {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -107,7 +116,7 @@ function AirPodsFeature({data:{ imageScr, imageAlt, content, title }}) {
       ) : (
         <div>
           <Image>
-            <img src={imageScr} alt={imageAlt} />
+            <img src={image} alt={description} css={css} />
           </Image>
           <FeatureBoxTitle>{title}</FeatureBoxTitle>
         </div>
