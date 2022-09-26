@@ -8,7 +8,7 @@ const Container = styled.div`
   margin: auto;
   padding-bottom: 60px;
   text-align: center;
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     width: 980px;
     border-bottom: 2px solid rgb(218, 218, 223);
   }

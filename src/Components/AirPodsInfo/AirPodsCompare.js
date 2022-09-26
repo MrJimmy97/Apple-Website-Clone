@@ -22,7 +22,7 @@ const ImageButton = styled.div`
   justify-content: center;
   margin-bottom: 30px;
   cursor: pointer;
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     height: 235px;
     margin-bottom: 50px;
   }
@@ -42,7 +42,7 @@ const Specification = styled.div`
   &:last-of-type{
     border-bottom: 1px solid rgb(212, 212, 212);
   }
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     &:last-of-type{
     border-bottom: none;
   }
