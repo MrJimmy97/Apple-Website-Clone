@@ -4,15 +4,25 @@ import ArrowButton from "../ReusesableComponents/ArrowButton";
 import AirPodsCompare from "./AirPodsCompare";
 
 const Container = styled.div`
-  width: 980px;
-  border-bottom: 2px solid rgb(218, 218, 223);
+  width: 95%;
+  margin: auto;
   padding-bottom: 60px;
   text-align: center;
+  @media (min-width: 1020px) {
+    width: 980px;
+    border-bottom: 2px solid rgb(218, 218, 223);
+  }
 `;
 const AirPodsList = styled.div`
   display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 15%;
+  @media (min-width: 980px) {
+    column-gap: normal;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 `;
 
 function AirPodsCompares() {

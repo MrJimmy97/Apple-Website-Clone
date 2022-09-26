@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const Title = styled.div`
   text-align: center;
-  font-size: 50px;
+  font-size: 42px;
   font-weight: bold;
   padding-top: 120px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
   @media (min-width: 1020px) {
     font-size: 62px;
   }

@@ -17,24 +17,24 @@ const airPodsData = [
     productName: "AirPods",
     generation: "2nd generation",
     price: "HK$1,099",
-    specsImageScr: "./Content_specifications/AirPods2nd_spec.png",
-    specsImageWidthAndHeight: "width: 120px;height: 159px",
-    specsImageAlt: "AirPods2nd",
+    image: "./Content_specifications/AirPods2nd_spec.png",
+    css: "width: 99px;height: 130px; @media (min-width:1020px){width: 120px;height: 159px;}",
+    imageDescription: "AirPods2nd",
     specifications: [
-      { key: "a2", img: "", alt: "", imageWidthAndHeight: "", description: "" },
-      { key: "a3", img: "", alt: "", imageWidthAndHeight: "", description: "" },
-      { key: "a4", img: "", alt: "", imageWidthAndHeight: "", description: "" },
+      { key: "a2", img: "", imageDescription: "", css: "", description: "" },
+      { key: "a3", img: "", imageDescription: "", css: "", description: "" },
+      { key: "a4", img: "", imageDescription: "", css: "", description: "" },
       {
         key: "a5",
         img: "./Content_specifications/AirPods2nd_specCharging.png",
-        alt: "AirPods2nd_specCharging",
-        imageWidthAndHeight: "width: 76px;height: 61px;object-fit: contain",
-        description: <Message>Lightning Charging Case</Message>,
+        imageDescription: "AirPods2nd_specCharging",
+        css: "width: 76px;height: 61px;",
+        content: <Message>Lightning Charging Case</Message>,
       },
       {
         key: "a6",
         time: "5",
-        description: (
+        content: (
           <Message>
             Up to 5 hours of listening
             <br /> time with a single charge<sup>6</sup>
@@ -48,29 +48,29 @@ const airPodsData = [
     productName: "AirPods",
     generation: "3rd generation",
     price: "From HK$1,399",
-    specsImageScr: "./Content_specifications/AirPods3rd_spec.png",
-    specsImageWidthAndHeight: "width: 149px;height: 144px",
-    specsImageAlt: "AirPods3rd",
+    image: "./Content_specifications/AirPods3rd_spec.png",
+    css: "width: 113px;height: 130px; @media (min-width:1020px){width: 149px;height: 144px;}",
+    imageDescription: "AirPods3rd",
     specifications: [
       {
         key: "b2",
         img: "./Content_specifications/spatialAudio.png",
-        alt: "spatialAudio",
-        imageWidthAndHeight: "width: 40px;height: 38px;",
-        description: (
+        imageDescription: "spatialAudio",
+        css: "width: 40px;height: 38px;",
+        content: (
           <Message>
             Personalized Spatial Audio
             <br /> with dynamic head tracking<sup>2</sup>
           </Message>
         ),
       },
-      { key: "b3", img: "", alt: "", imageWidthAndHeight: "", description: "" },
+      { key: "b3", img: "", imageDescription: "", css: "", description: "" },
       {
         key: "b4",
         img: "./Content_specifications/waterResistant.png",
-        alt: "waterResistant",
-        imageWidthAndHeight: "width: 28px;height: 41px",
-        description: (
+        imageDescription: "waterResistant",
+        css: "width: 28px;height: 41px",
+        content: (
           <Message>
             Sweat and
             <br /> water resistant<sup>4</sup>
@@ -80,9 +80,9 @@ const airPodsData = [
       {
         key: "b5",
         img: "./Content_specifications/AirPods3rd_specCharging.png",
-        alt: "AirPods3rd_specCharing",
-        imageWidthAndHeight: "width: 76px;height: 61px",
-        description: (
+        imageDescription: "AirPods3rd_specCharing",
+        css: "width: 76px;height: 61px",
+        content: (
           <Message>
             Lightning Charging Case or MagSafe Charging Case<sup>5</sup>
           </Message>
@@ -91,7 +91,7 @@ const airPodsData = [
       {
         key: "b6",
         time: "6",
-        description: (
+        content: (
           <Message>
             Up to 6 hours of listening
             <br /> time with a single charge<sup>6</sup>
@@ -105,16 +105,16 @@ const airPodsData = [
     productName: "AirPods Pro",
     generation: "2nd generation",
     price: "HK$1,849",
-    specsImageScr: "./Content_specifications/AirPodsPro_spec.png",
-    specsImageWidthAndHeight: "width: 165px;height: 140px",
-    specsImageAlt: "AirPodsPro2nd",
+    image: "./Content_specifications/AirPodsPro_spec.png",
+    css: "width: 111px;height: 95px; @media (min-width:1020px){width: 165px;height: 140px;}",
+    imageDescription: "AirPodsPro2nd",
     specifications: [
       {
         key: "c2",
         img: "./Content_specifications/spatialAudio.png",
-        alt: "spatialAudio",
-        imageWidthAndHeight: "width: 40px;height: 38px",
-        description: (
+        imageDescription: "spatialAudio",
+        css: "width: 40px;height: 38px",
+        content: (
           <Message>
             Personalized Spatial Audio
             <br /> with dynamic head tracking<sup>2</sup>
@@ -124,9 +124,9 @@ const airPodsData = [
       {
         key: "c3",
         img: "./Content_specifications/noiseCancellation.png",
-        alt: "spatialAudio",
-        imageWidthAndHeight: "width: 62px;height: 34px",
-        description: (
+        imageDescription: "spatialAudio",
+        css: "width: 62px;height: 34px",
+        content: (
           <Message>
             Active Noise
             <br /> Cancellation and
@@ -137,9 +137,9 @@ const airPodsData = [
       {
         key: "c4",
         img: "./Content_specifications/waterResistant.png",
-        alt: "waterResistant",
-        imageWidthAndHeight: "width: 28px;height: 41px",
-        description: (
+        imageDescription: "waterResistant",
+        css: "width: 28px;height: 41px",
+        content: (
           <Message>
             Sweat and
             <br /> water resistant<sup>4</sup>
@@ -149,9 +149,9 @@ const airPodsData = [
       {
         key: "c5",
         img: "./Content_specifications/AirPodsPro_specCharging.png",
-        alt: "AirPodsPro_specCharging",
-        imageWidthAndHeight: "width: 76px;height: 61px",
-        description: (
+        imageDescription: "AirPodsPro_specCharging",
+        css: "width: 76px;height: 61px",
+        content: (
           <Message>
             MagSafe Charging Case with speaker and lanyard loop<sup>5</sup>
           </Message>
@@ -160,7 +160,7 @@ const airPodsData = [
       {
         key: "c6",
         time: "6",
-        description: (
+        content: (
           <Message>
             Up to 6 hours of listening
             <br /> time with a single charge<sup>6</sup>
@@ -174,16 +174,16 @@ const airPodsData = [
     productName: "AirPods Max",
     generation: "",
     price: "HK$4,599",
-    specsImageScr: "./Content_specifications/AirPodsMax_spec.png",
-    specsImageWidthAndHeight: "width: 212px;height: 235px",
-    specsImageAlt: "AirPodsMax",
+    image: "./Content_specifications/AirPodsMax_spec.png",
+    css: "width: 119px;height: 132px; @media (min-width:1020px){width: 212px;height: 235px;}",
+    imageDescription: "AirPodsMax",
     specifications: [
       {
         key: "d2",
         img: "./Content_specifications/spatialAudio.png",
-        alt: "spatialAudio",
-        imageWidthAndHeight: "width: 40px;height: 38px",
-        description: (
+        imageDescription: "spatialAudio",
+        css: "width: 40px;height: 38px",
+        content: (
           <Message>
             Personalized Spatial Audio
             <br /> with dynamic head tracking<sup>2</sup>
@@ -193,9 +193,9 @@ const airPodsData = [
       {
         key: "d3",
         img: "./Content_specifications/noiseCancellation.png",
-        alt: "spatialAudio",
-        imageWidthAndHeight: "width: 62px;height: 34px;",
-        description: (
+        imageDescription: "spatialAudio",
+        css: "width: 62px;height: 34px;",
+        content: (
           <Message>
             Active Noise
             <br /> Cancellation and
@@ -206,9 +206,9 @@ const airPodsData = [
       {
         key: "d4",
         img: "./Content_specifications/waterResistant.png",
-        alt: "waterResistant",
-        imageWidthAndHeight: "width: 28px;height: 41px",
-        description: (
+        imageDescription: "waterResistant",
+        css: "width: 28px;height: 41px",
+        content: (
           <Message>
             Sweat and
             <br /> water resistant<sup>4</sup>
@@ -218,14 +218,14 @@ const airPodsData = [
       {
         key: "d5",
         img: "./Content_specifications/AirPodsMax_specCharging.png",
-        alt: "AirPodsMax_specCharging",
-        imageWidthAndHeight: "width: 76px;height: 61px;object-fit: scale-down",
-        description: <Message>Smart Case</Message>,
+        imageDescription: "AirPodsMax_specCharging",
+        css: "width: 76px;height: 61px;object-fit: scale-down",
+        content: <Message>Smart Case</Message>,
       },
       {
         key: "d6",
         time: "6",
-        description: (
+        content: (
           <Message>
             Up to 6 hours of listening
             <br /> time with a single charge<sup>6</sup>
