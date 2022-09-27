@@ -19,18 +19,18 @@ const Container = styled.div`
   }
   &:nth-of-type(1) {
     height: 640px;
-    @media (min-width: 1020px) {
+    @media (min-width: 980px) {
       height: 820px;
     }
   }
-  &:nth-of-type(4) {
+  &:last-of-type {
     height: 640px;
-    @media (min-width: 1020px) {
+    @media (min-width: 980px) {
       height: 746px;
     }
   }
 
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     height: 680px;
   }
 `;
@@ -42,7 +42,7 @@ const ProductButtonBox = styled.span`
   position: absolute;
   bottom: 5%;
   left: calc(50%-113px);
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     width: 230px;
   }
 `;
@@ -55,7 +55,7 @@ function AirPodsIntroduction({ children, isBlackTheme }) {
         <BuyButton isBlackTheme={isBlackTheme} isLargeSize={true} />
         <ArrowButton
           isBlackTheme={isBlackTheme}
-          fontSize="font-size:18px; @media (min-width: 1020px) {font-size:20px}"
+          fontSize="font-size:18px; @media (min-width: 980px) {font-size:20px}"
         >
           Learn more
         </ArrowButton>

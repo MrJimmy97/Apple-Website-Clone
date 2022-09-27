@@ -11,6 +11,10 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 20%;
+  @media (max-width:600px) {
+    gap: normal;
+    height:auto;
+  }
   @media (min-width: 980px) {
     width: 980px;
     gap: normal;

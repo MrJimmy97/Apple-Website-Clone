@@ -6,7 +6,7 @@ const Title = styled.div`
   font-weight: bold;
   padding-top: 120px;
   padding-bottom: 50px;
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     font-size: 62px;
   }
 `;

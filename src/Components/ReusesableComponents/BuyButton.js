@@ -32,7 +32,7 @@ function BuyButton({ isLargeSize, isBlackTheme }) {
       border-radius: 26px;
       font-size: 16px;
       padding: 12px 22px;
-      @media (min-width: 1020px) {
+      @media (min-width: 980px) {
         border-radius: 30px;
       font-size: 20px;
       padding: 12px 22px;

@@ -1,12 +1,16 @@
 import styled from "styled-components/macro";
 
 const Container = styled.div`
-  width: 980px;
+  width: 95%;
   border-bottom: 2px solid rgb(218, 218, 223);
   color: rgb(145, 142, 145);
   padding: 10px 0;
   line-height: 1.3;
   font-size: 10px;
+  
+  @media (min-width:980px) {
+    width: 980px;
+  }
 `;
 
 function Notes() {

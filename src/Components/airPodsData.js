@@ -18,7 +18,7 @@ const airPodsData = [
     generation: "2nd generation",
     price: "HK$1,099",
     image: "./Content_specifications/AirPods2nd_spec.png",
-    css: "width: 99px;height: 130px; @media (min-width:1020px){width: 120px;height: 159px;}",
+    css: "width: 99px;height: 130px; @media (min-width:980px){width: 120px;height: 159px;}",
     imageDescription: "AirPods2nd",
     specifications: [
       { key: "a2", img: "", imageDescription: "", css: "", description: "" },
@@ -49,7 +49,7 @@ const airPodsData = [
     generation: "3rd generation",
     price: "From HK$1,399",
     image: "./Content_specifications/AirPods3rd_spec.png",
-    css: "width: 113px;height: 130px; @media (min-width:1020px){width: 149px;height: 144px;}",
+    css: "width: 113px;height: 130px; @media (min-width:980px){width: 149px;height: 144px;}",
     imageDescription: "AirPods3rd",
     specifications: [
       {
@@ -106,7 +106,7 @@ const airPodsData = [
     generation: "2nd generation",
     price: "HK$1,849",
     image: "./Content_specifications/AirPodsPro_spec.png",
-    css: "width: 111px;height: 95px; @media (min-width:1020px){width: 165px;height: 140px;}",
+    css: "width: 111px;height: 95px; @media (min-width:980px){width: 165px;height: 140px;}",
     imageDescription: "AirPodsPro2nd",
     specifications: [
       {
@@ -175,7 +175,7 @@ const airPodsData = [
     generation: "",
     price: "HK$4,599",
     image: "./Content_specifications/AirPodsMax_spec.png",
-    css: "width: 119px;height: 132px; @media (min-width:1020px){width: 212px;height: 235px;}",
+    css: "width: 119px;height: 132px; @media (min-width:980px){width: 212px;height: 235px;}",
     imageDescription: "AirPodsMax",
     specifications: [
       {

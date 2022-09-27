@@ -10,7 +10,7 @@ const Content = styled.div`
   min-width: 330px;
   margin-left: 20px;
   position: relative;
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     height: 484px;
     min-width: 380px;
   }
@@ -30,7 +30,7 @@ const Image = styled.div`
   flex-direction: column;
   justify-content: center;
   animation: fadein 0.5s forwards;
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     height: 380px;
   }
   & > img {
@@ -77,7 +77,7 @@ const CrossButton = styled.button`
       ? "plusButton-to-crossButton 0.5s forwards"
       : "crossButton-to-plusButton 0.5s forwards"};
 
-  @media (min-width: 1020px) {
+  @media (min-width: 980px) {
     font-size: 40px;
   }
   @keyframes crossButton-to-plusButton {
