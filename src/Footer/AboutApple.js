@@ -4,6 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
 import dictionaryData from "../Components/dictionaryData";
 
+const Container = styled.div`
+  width: 95%;
+  border-bottom: none;
+  font-size: 14px;
+  @media (min-width: 980px) {
+    width: 980px;
+    border-bottom: 2px solid rgb(218, 218, 223);
+  }
+`;
 const HomeButton = styled.button`
   background: transparent;
   border: none;
@@ -14,19 +23,9 @@ const HomeButton = styled.button`
     cursor: pointer;
   }
 `;
-const Container = styled.div`
-  width: 95%;
-  border-bottom: none;
-  font-size: 14px;
-  @media (min-width: 980px) {
-    width: 980px;
-    border-bottom: 2px solid rgb(218, 218, 223);
-  }
-`;
 const Directory_S = styled.div`
   display: flex;
   flex-direction: column;
-
   @media (min-width: 980px) {
     display: none;
   }
@@ -47,15 +46,13 @@ const DirectoryTitle_S = styled.div`
 const DirectoryButtonList_S = styled.div`
   display: flex;
   flex-direction: column;
-  animation: slideIn 3s forward;
+  animation: ${(props) => props.isOpened && "slideIn 0.5s forwards"};
   @keyframes slideIn {
     from {
-      transform: translateY(-100%);
-      opacity: 0;
+      transform: translateY(-50%) scaleY(0);
     }
     to {
-      transform: translateY(0);
-      opacity: 1;
+      transform: translateY(0) scaleY(1);
     }
   }
 `;
@@ -66,7 +63,7 @@ const DirectoryButton_S = styled.button`
   font-size: 10px;
   margin: 0 0 15px 20px;
   text-align: left;
-  color: rgb(145, 142, 145);
+  color: rgb(23, 54, 93);
   &:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -152,9 +149,7 @@ function DirectoryCategory_f({ data: { title, directoryLink } }) {
         {title}
       </div>
       {directoryLink.map((data, i) => {
-        return (
-          <DirectoryButton_F key={i}>{data.title}</DirectoryButton_F>
-        );
+        return <DirectoryButton_F key={i}>{data.title}</DirectoryButton_F>;
       })}
     </div>
   );
@@ -162,7 +157,7 @@ function DirectoryCategory_f({ data: { title, directoryLink } }) {
 function AboutApple() {
   return (
     <Container>
-      <div css="padding:15px 0;display:flex;border-bottom:2px solid rgb(218, 218, 223);@media (min-width:980px) {border-bottom:none;padding:10px 0;}">
+      <div css="padding:12px 0;display:flex;border-bottom:2px solid rgb(218, 218, 223);@media (min-width:980px) {border-bottom:none;padding:10px 0;}">
         <HomeButton>
           <FontAwesomeIcon icon={faAppleWhole} />
         </HomeButton>
