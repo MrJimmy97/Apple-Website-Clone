@@ -113,14 +113,14 @@ function Services() {
   return (
     <div css=" width: 100%;display: flex;justify-content: center;">
       <Container>
-        {data.map((data) => (
+        {data.map((data, i) => (
           <Box
             img={data.img}
             alt={data.alt}
             title={data.title}
             content={data.content}
             buttonContent={data.buttonContent}
-            key={data.key}
+            key={i}
           />
         ))}
       </Container>

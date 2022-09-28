@@ -13,7 +13,6 @@ const Message = styled.div`
 
 const airPodsData = [
   {
-    key: "a1",
     productName: "AirPods",
     generation: "2nd generation",
     price: "HK$1,099",
@@ -21,18 +20,16 @@ const airPodsData = [
     css: "width: 99px;height: 130px; @media (min-width:980px){width: 120px;height: 159px;}",
     imageDescription: "AirPods2nd",
     specifications: [
-      { key: "a2", img: "", imageDescription: "", css: "", description: "" },
-      { key: "a3", img: "", imageDescription: "", css: "", description: "" },
-      { key: "a4", img: "", imageDescription: "", css: "", description: "" },
+      { img: "", imageDescription: "", css: "", description: "" },
+      { img: "", imageDescription: "", css: "", description: "" },
+      { img: "", imageDescription: "", css: "", description: "" },
       {
-        key: "a5",
         img: "./Content_specifications/AirPods2nd_specCharging.png",
         imageDescription: "AirPods2nd_specCharging",
         css: "width: 76px;height: 61px;",
         content: <Message>Lightning Charging Case</Message>,
       },
       {
-        key: "a6",
         time: "5",
         content: (
           <Message>
@@ -44,7 +41,6 @@ const airPodsData = [
     ],
   },
   {
-    key: "b1",
     productName: "AirPods",
     generation: "3rd generation",
     price: "From HK$1,399",
@@ -53,7 +49,6 @@ const airPodsData = [
     imageDescription: "AirPods3rd",
     specifications: [
       {
-        key: "b2",
         img: "./Content_specifications/spatialAudio.png",
         imageDescription: "spatialAudio",
         css: "width: 40px;height: 38px;",
@@ -64,9 +59,8 @@ const airPodsData = [
           </Message>
         ),
       },
-      { key: "b3", img: "", imageDescription: "", css: "", description: "" },
+      { img: "", imageDescription: "", css: "", description: "" },
       {
-        key: "b4",
         img: "./Content_specifications/waterResistant.png",
         imageDescription: "waterResistant",
         css: "width: 28px;height: 41px",
@@ -78,7 +72,6 @@ const airPodsData = [
         ),
       },
       {
-        key: "b5",
         img: "./Content_specifications/AirPods3rd_specCharging.png",
         imageDescription: "AirPods3rd_specCharing",
         css: "width: 76px;height: 61px",
@@ -89,7 +82,6 @@ const airPodsData = [
         ),
       },
       {
-        key: "b6",
         time: "6",
         content: (
           <Message>
@@ -101,7 +93,6 @@ const airPodsData = [
     ],
   },
   {
-    key: "c1",
     productName: "AirPods Pro",
     generation: "2nd generation",
     price: "HK$1,849",
@@ -110,7 +101,6 @@ const airPodsData = [
     imageDescription: "AirPodsPro2nd",
     specifications: [
       {
-        key: "c2",
         img: "./Content_specifications/spatialAudio.png",
         imageDescription: "spatialAudio",
         css: "width: 40px;height: 38px",
@@ -122,7 +112,6 @@ const airPodsData = [
         ),
       },
       {
-        key: "c3",
         img: "./Content_specifications/noiseCancellation.png",
         imageDescription: "spatialAudio",
         css: "width: 62px;height: 34px",
@@ -135,7 +124,6 @@ const airPodsData = [
         ),
       },
       {
-        key: "c4",
         img: "./Content_specifications/waterResistant.png",
         imageDescription: "waterResistant",
         css: "width: 28px;height: 41px",
@@ -147,7 +135,6 @@ const airPodsData = [
         ),
       },
       {
-        key: "c5",
         img: "./Content_specifications/AirPodsPro_specCharging.png",
         imageDescription: "AirPodsPro_specCharging",
         css: "width: 76px;height: 61px",
@@ -158,7 +145,6 @@ const airPodsData = [
         ),
       },
       {
-        key: "c6",
         time: "6",
         content: (
           <Message>
@@ -170,7 +156,6 @@ const airPodsData = [
     ],
   },
   {
-    key: "d1",
     productName: "AirPods Max",
     generation: "",
     price: "HK$4,599",
@@ -179,7 +164,6 @@ const airPodsData = [
     imageDescription: "AirPodsMax",
     specifications: [
       {
-        key: "d2",
         img: "./Content_specifications/spatialAudio.png",
         imageDescription: "spatialAudio",
         css: "width: 40px;height: 38px",
@@ -191,7 +175,6 @@ const airPodsData = [
         ),
       },
       {
-        key: "d3",
         img: "./Content_specifications/noiseCancellation.png",
         imageDescription: "spatialAudio",
         css: "width: 62px;height: 34px;",
@@ -204,7 +187,6 @@ const airPodsData = [
         ),
       },
       {
-        key: "d4",
         img: "./Content_specifications/waterResistant.png",
         imageDescription: "waterResistant",
         css: "width: 28px;height: 41px",
@@ -216,14 +198,12 @@ const airPodsData = [
         ),
       },
       {
-        key: "d5",
         img: "./Content_specifications/AirPodsMax_specCharging.png",
         imageDescription: "AirPodsMax_specCharging",
         css: "width: 76px;height: 61px;object-fit: scale-down",
         content: <Message>Smart Case</Message>,
       },
       {
-        key: "d6",
         time: "6",
         content: (
           <Message>

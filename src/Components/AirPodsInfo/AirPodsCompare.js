@@ -77,10 +77,10 @@ function AirPodsCompare({
         </ButtonContainer>
       </AirPodsInfo>
       <div css="display: flex;flex-direction: column;justify-content: space-evenly;">
-        {specifications.map((data) => {
+        {specifications.map((data, i) => {
           if (data.img) {
             return (
-              <Specification key={data.key}>
+              <Specification key={i}>
                 <div>
                   <img src={data.img} alt={data.image} css={data.css} />
                 </div>
@@ -89,13 +89,13 @@ function AirPodsCompare({
             );
           } else if (data.time) {
             return (
-              <Specification key={data.key}>
+              <Specification key={i}>
                 <div css="font-weight:bold;font-size:40px">{data.time} hrs</div>
                 <>{data.content}</>
               </Specification>
             );
           } else {
-            return <Specification key={data.key}>&#8212;</Specification>;
+            return <Specification key={i}>&#8212;</Specification>;
           }
         })}
       </div>

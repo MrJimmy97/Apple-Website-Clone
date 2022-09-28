@@ -30,8 +30,8 @@ function AirPodsCompares() {
     <div>
       <Container>
         <AirPodsList>
-          {airPodsData.map((data) => (
-            <AirPodsCompare productData={data} key={data.key} />
+          {airPodsData.map((data, i) => (
+            <AirPodsCompare productData={data} key={i} />
           ))}
         </AirPodsList>
         <ArrowButton fontSize="font-size: 20px">

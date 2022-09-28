@@ -159,8 +159,8 @@ function MainNavBar() {
         <NavItem>
           <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
         </NavItem>
-        {navBarLink.map((data) => (
-          <NavItem key={data.key}>{data.title}</NavItem>
+        {navBarLink.map((data, i) => (
+          <NavItem key={i}>{data.title}</NavItem>
         ))}
         <NavItem>
           <FontAwesomeIcon css="font-size: 15px" icon={faMagnifyingGlass} />
@@ -175,8 +175,8 @@ function MainNavBar() {
             <Input type="text" placeholder="&#xf002;   Search apple.com" />
           </div>
           <div css="display: flex;flex-direction:column;align-items: center;">
-            {navBarLink.map((data) => (
-              <ClickedNavBarButton key={data.key}>
+            {navBarLink.map((data, i) => (
+              <ClickedNavBarButton key={i}>
                 {data.title}
               </ClickedNavBarButton>
             ))}

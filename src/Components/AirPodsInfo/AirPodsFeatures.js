@@ -76,8 +76,8 @@ function AirPodsFeatures() {
   return (
     <div>
       <FeaturesBar ref={featuresBarRef} onScroll={scrollHandler}>
-        {airPodsFeatures.map((featuredata) => (
-          <AirPodsFeature data={featuredata} key={featuredata.key} />
+        {airPodsFeatures.map((featuredata, i) => (
+          <AirPodsFeature data={featuredata} key={i} />
         ))}
         <Space />
       </FeaturesBar>
