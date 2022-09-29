@@ -15,7 +15,7 @@ const NavBar = styled.div`
   width: 100%;
   height: 48px;
   position: relative;
-  z-index: 2;
+  z-index: 3;
   margin: 0;
   display: flex;
   justify-content: space-between;
@@ -40,15 +40,15 @@ const NavBar = styled.div`
   }
 `;
 
-const NavItem = styled.button`
+const NavBarItem_F = styled.button`
   display: none;
   @media (min-width: 1020px) {
     display: inline;
   }
 `;
-const SmallNavBarItem = styled.button`
+const NavBarItem_S = styled.button`
   display: inline;
-  position: re;
+  position: relative;
   z-index: 2;
   @media (min-width: 1020px) {
     display: none;
@@ -64,18 +64,18 @@ const ClickedNavBar = styled.div`
     props.isOpened ? "slideIn 0.5s forwards" : "slideOut 0.5s forwards"};
   @keyframes slideIn {
     from {
-      transform: translateY(-100%);
+      transform: translateY(-100%) scaleY(0);
     }
     to {
-      transform: translateY(0%);
+      transform: translateY(0%) scaleY(1);
     }
   }
   @keyframes slideOut {
     from {
-      transform: translateY(0%);
+      transform: translateY(0%) scaleY(1);
     }
     to {
-      transform: translateY(-100%);
+      transform: translateY(-100%) scaleY(0);
     }
   }
 `;
@@ -114,16 +114,16 @@ const ClickedNavBarButton = styled.button`
 `;
 
 const navBarLink = [
-  { title: "Store", key: "aa1" },
-  { title: "Mac", key: "aa2" },
-  { title: "iPad", key: "aa3" },
-  { title: "iPhone", key: "aa4" },
-  { title: "Watch", key: "aa5" },
-  { title: "AirPods", key: "aa6" },
-  { title: "TV & Home", key: "aa7" },
-  { title: "Only On Apple", key: "aa8" },
-  { title: "Accessories", key: "aa9" },
-  { title: "Support", key: "aa10" },
+  "Store",
+  "Mac",
+  "iPad",
+  "iPhone",
+  "Watch",
+  "AirPods",
+  "TV & Home",
+  "Only On Apple",
+  "Accessories",
+  "Support",
 ];
 
 function MainNavBar() {
@@ -132,7 +132,7 @@ function MainNavBar() {
   return (
     <>
       <NavBar isOpened={isOpened}>
-        <SmallNavBarItem
+        <NavBarItem_S
           onClick={() =>
             setIsOpened((current) => {
               if (isOpened) document.body.style.overflow = "auto";
@@ -145,29 +145,29 @@ function MainNavBar() {
             css={isOpened ? "font-size: 20px" : "font-size: 15px"}
             icon={isOpened ? faXmark : faBars}
           />
-        </SmallNavBarItem>
-        <SmallNavBarItem>
+        </NavBarItem_S>
+        <NavBarItem_S>
           <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
-        </SmallNavBarItem>
+        </NavBarItem_S>
         {!isOpened ? (
-          <SmallNavBarItem>
+          <NavBarItem_S>
             <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
-          </SmallNavBarItem>
+          </NavBarItem_S>
         ) : (
           <div css="width:73px" />
         )}
-        <NavItem>
+        <NavBarItem_F>
           <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
-        </NavItem>
+        </NavBarItem_F>
         {navBarLink.map((data, i) => (
-          <NavItem key={i}>{data.title}</NavItem>
+          <NavBarItem_F key={i}>{data}</NavBarItem_F>
         ))}
-        <NavItem>
+        <NavBarItem_F>
           <FontAwesomeIcon css="font-size: 15px" icon={faMagnifyingGlass} />
-        </NavItem>
-        <NavItem>
+        </NavBarItem_F>
+        <NavBarItem_F>
           <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
-        </NavItem>
+        </NavBarItem_F>
       </NavBar>
       {isOpened && (
         <ClickedNavBar isOpened={isOpened}>
@@ -176,9 +176,7 @@ function MainNavBar() {
           </div>
           <div css="display: flex;flex-direction:column;align-items: center;">
             {navBarLink.map((data, i) => (
-              <ClickedNavBarButton key={i}>
-                {data.title}
-              </ClickedNavBarButton>
+              <ClickedNavBarButton key={i}>{data}</ClickedNavBarButton>
             ))}
           </div>
         </ClickedNavBar>

@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
+import { useState } from "react";
 import ArrowButton from "../ReusesableComponents/ArrowButton";
 
 const Message = styled.p`
@@ -6,7 +7,7 @@ const Message = styled.p`
   font-size: 6px;
   font-weight: 500;
   padding: 12px 0;
-  margin:0;
+  margin: 0;
   position: relative;
   color: rgb(90, 90, 90);
   animation: top-to-bottom 2s;
@@ -14,17 +15,17 @@ const Message = styled.p`
   @keyframes top-to-bottom {
     0% {
       transform: translateY(-42px);
-      color:white;
-      background-color: rgb(8,116,228);
+      color: white;
+      background-color: rgb(8, 116, 228);
       z-index: -1;
     }
     33% {
       transform: translateY(0px);
       z-index: -1;
     }
-    66%{
-      color:white;
-      background-color: rgb(8,116,228);
+    66% {
+      color: white;
+      background-color: rgb(8, 116, 228);
       z-index: 0;
     }
     100% {
@@ -42,6 +43,6 @@ function NavMessage() {
       <ArrowButton>Learn more</ArrowButton>
     </Message>
   );
-};
+}
 
 export default NavMessage;
