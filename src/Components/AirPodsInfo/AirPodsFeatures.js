@@ -4,7 +4,7 @@ import {
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
 } from "@fortawesome/free-regular-svg-icons";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import AirPodsFeature from "./AirPodsFeature";
 import airPodsFeatures from "../featuresData";
 
@@ -42,40 +42,27 @@ const ScrollRightButton = styled.button`
 
 function AirPodsFeatures() {
   const featuresBarRef = useRef();
-  const [isLeft, setIsLeft] = useState(true);
-  const [isRight, setIsRight] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentBoxWidth, setBoxWidth] = useState(330);
+  const [maxScrollWidth, setMaxScrollWidth] = useState(4);
 
-  const scrollHandler = (event) => {
-    console.log(event.target.scrollLeft, event.target.clientWidth);
-    setIsLeft(event.target.scrollLeft === 0);
-    if (event.target.clientWidth >= 1200) {
-      setIsRight(event.target.scrollLeft === 1600);
+  useEffect(() => {
+    featuresBarRef.current.scrollLeft = (currentBoxWidth + 20) * currentIndex;
+  }, [currentIndex, currentBoxWidth]);
+
+  useEffect(() => {
+    if (window.innerWidth < 980) {
+      setMaxScrollWidth(5);
+      setBoxWidth(330);
     } else {
-      setIsRight(event.target.scrollLeft === 1750);
+      setMaxScrollWidth(4);
+      setBoxWidth(380);
     }
-  };
+  }, [window.innerWidth]);
 
-  const scrollLeftHandler = () => {
-    if (featuresBarRef.current.scrollLeft % 400 === 0) {
-      featuresBarRef.current.scrollLeft -= 400;
-    }
-    if (document.documentElement.clientWidth <= 1020) {
-      featuresBarRef.current.scrollLeft -= 350;
-      console.log(featuresBarRef.current.scrollLeft )
-    }
-  };
-  const scrollRightHandler = () => {
-    if (featuresBarRef.current.scrollLeft % 400 === 0) {
-      featuresBarRef.current.scrollLeft += 400;
-    }
-    if (document.documentElement.clientWidth <= 1020) {
-      featuresBarRef.current.scrollLeft += 350;
-      console.log(featuresBarRef.current.scrollLeft )
-    }
-  };
   return (
     <div>
-      <FeaturesBar ref={featuresBarRef} onScroll={scrollHandler}>
+      <FeaturesBar ref={featuresBarRef}>
         {airPodsFeatures.map((featuredata, i) => (
           <AirPodsFeature data={featuredata} key={i} />
         ))}
@@ -83,14 +70,24 @@ function AirPodsFeatures() {
       </FeaturesBar>
       <ScrollButtons>
         <ScrollLeftButton
-          disabled={isLeft}
-          onClick={() => setTimeout(scrollLeftHandler, 200)}
+          disabled={currentIndex <= 0}
+          onClick={() =>
+            setTimeout(
+              setCurrentIndex((current) => current - 1),
+              200
+            )
+          }
         >
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
         </ScrollLeftButton>
         <ScrollRightButton
-          disabled={isRight}
-          onClick={() => setTimeout(scrollRightHandler, 200)}
+          disabled={currentIndex === maxScrollWidth}
+          onClick={() =>
+            setTimeout(
+              setCurrentIndex((current) => current + 1),
+              200
+            )
+          }
         >
           <FontAwesomeIcon icon={faArrowAltCircleRight} />
         </ScrollRightButton>
