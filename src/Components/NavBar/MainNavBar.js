@@ -60,8 +60,9 @@ const ClickedNavBar = styled.div`
   height: 100%;
   width: 100%;
   background-color: black;
-  animation: ${(props) =>
-    props.isOpened ? "slideIn 0.5s forwards" : "slideOut 0.5s forwards"};
+  transform: translateY(-100%) scaleY(0);
+  ${({ navAnimation }) => navAnimation}
+
   @keyframes slideIn {
     from {
       transform: translateY(-100%) scaleY(0);
@@ -128,6 +129,7 @@ const navBarLink = [
 
 function MainNavBar() {
   const [isOpened, setIsOpened] = useState(false);
+  const [navAnimation, setNavAnimation] = useState("");
 
   return (
     <>
@@ -135,8 +137,13 @@ function MainNavBar() {
         <NavBarItem_S
           onClick={() =>
             setIsOpened((current) => {
-              if (isOpened) document.body.style.overflow = "auto";
-              else document.body.style.overflow = "hidden";
+              if (current) {
+                document.body.style.overflow = "auto";
+                setNavAnimation("animation: slideOut 0.5s forwards;");
+              } else {
+                document.body.style.overflow = "hidden";
+                setNavAnimation("animation: slideIn 0.5s forwards;");
+              }
               return !current;
             })
           }
@@ -169,18 +176,16 @@ function MainNavBar() {
           <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
         </NavBarItem_F>
       </NavBar>
-      {isOpened && (
-        <ClickedNavBar isOpened={isOpened}>
-          <div css="text-align:center;border-bottom:1px solid rgb(49,49,51)">
-            <Input type="text" placeholder="&#xf002;   Search apple.com" />
-          </div>
-          <div css="display: flex;flex-direction:column;align-items: center;">
-            {navBarLink.map((data, i) => (
-              <ClickedNavBarButton key={i}>{data}</ClickedNavBarButton>
-            ))}
-          </div>
-        </ClickedNavBar>
-      )}
+      <ClickedNavBar isOpened={isOpened} navAnimation={navAnimation}>
+        <div css="text-align:center;border-bottom:1px solid rgb(49,49,51)">
+          <Input type="text" placeholder="&#xf002;   Search apple.com" />
+        </div>
+        <div css="display: flex;flex-direction:column;align-items: center;">
+          {navBarLink.map((data, i) => (
+            <ClickedNavBarButton key={i}>{data}</ClickedNavBarButton>
+          ))}
+        </div>
+      </ClickedNavBar>
     </>
   );
 }
