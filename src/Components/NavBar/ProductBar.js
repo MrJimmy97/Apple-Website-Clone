@@ -37,64 +37,71 @@ const ProductBarButton = styled.button`
     }
   }
 `;
+const data = [
+  {
+    image: "/header_NavBar/AirPods_2nd.png",
+    description: "AirPods2nd",
+    css: "width: 35px",
+    title: (
+      <div>
+        AirPods
+        <br />
+        2nd Generation
+      </div>
+    ),
+  },
+  {
+    image: "/header_NavBar/AirPods_3rd.png",
+    description: "AirPods3rd",
+    css: "width: 32px",
+    title: (
+      <div>
+        AirPods <br />
+        3rd Generation
+      </div>
+    ),
+  },
+  {
+    image: "/header_NavBar/AirPodsPro2nd.png",
+    description: "AirPodsPro2nd",
+    css: "width: 40px",
+    title: (
+      <div>
+        AirPods Pro
+        <br />
+        2nd Generation
+      </div>
+    ),
+  },
+  {
+    image: "/header_NavBar/AirPodsMax.png",
+    description: "AirPodsMax",
+    css: "width: 35px",
+    title: <div>AirPods Max</div>,
+  },
+  {
+    image: "/header_NavBar/Compare.png",
+    description: "Compare",
+    css: "width: 40px",
+    title: <div>Compare</div>,
+  },
+  {
+    image: "/header_NavBar/AppleMusic.png",
+    description: "AppleMusic",
+    css: "width: 34px",
+    title: <div>Apple Music</div>,
+  },
+];
+
 function ProductBar() {
   return (
     <NavBar>
-      <ProductBarButton>
-        <img
-          css="width: 35px"
-          src="/header_NavBar/AirPods_2nd.png"
-          alt="AirPods2nd"
-        />
-        <div>
-          AirPods
-          <br />
-          2nd Generation
-        </div>
-      </ProductBarButton>
-      <ProductBarButton>
-        <img
-          css="width: 32px"
-          src="/header_NavBar/AirPods_3rd.png"
-          alt="AirPods3nd"
-        />
-        <div>
-          AirPods <br />
-          3rd Generation
-        </div>
-      </ProductBarButton>
-      <ProductBarButton>
-        <img
-          css="width: 40px"
-          src="/header_NavBar/AirPodsPro2nd.png"
-          alt="AirPodsPro2nd"
-        />
-        <div>
-          AirPods Pro
-          <br />
-          2nd Generation
-        </div>
-      </ProductBarButton>
-      <ProductBarButton>
-        <img
-          css="width: 35px"
-          src="/header_NavBar/AirPodsMax.png"
-          alt="AirPodsMax"
-        />
-        <div>AirPods Max</div>
-      </ProductBarButton>
-      <ProductBarButton>
-        <img css="width: 40px" src="/header_NavBar/Compare.png" alt="Compare" />
-        <div>Compare</div>
-      </ProductBarButton>
-      <ProductBarButton>
-        <img
-          css="width: 34px"
-          src="/header_NavBar/AppleMusic.png"
-          alt="AppleMusic"
-        />
-        <div>Apple Music</div>
-      </ProductBarButton>
+      {data.map(({ image, description, css, title }, i) => (
+        <ProductBarButton key={i}>
+          <img css={css} src={image} alt={description} />
+          {title}
+        </ProductBarButton>
+      ))}
     </NavBar>
   );
 }
