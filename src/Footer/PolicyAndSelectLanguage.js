@@ -6,6 +6,7 @@ const Container = styled.div`
   width: 95%;
   display: flex;
   flex-direction: column;
+  
   @media (min-width: 980px) {
     width: 980px;
     flex-direction: row;
@@ -13,18 +14,17 @@ const Container = styled.div`
     margin-top: 10px;
   }
 `;
-
 const Button = styled.button`
   background-color: transparent;
   border: none;
   font-size: 10px;
   color: rgb(99, 92, 83);
+
   &:hover {
     cursor: pointer;
     text-decoration: underline;
   }
 `;
-
 const Separator = styled.div`
   opacity: 0.2;
   user-select: none;

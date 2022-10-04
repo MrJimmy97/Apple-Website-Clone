@@ -29,12 +29,10 @@ const Container = styled.div`
       height: 746px;
     }
   }
-
   @media (min-width: 980px) {
     height: 680px;
   }
 `;
-
 const ProductButtonBox = styled.span`
   width: 200px;
   display: flex;

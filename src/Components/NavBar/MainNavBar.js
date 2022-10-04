@@ -39,7 +39,6 @@ const NavBar = styled.div`
     }
   }
 `;
-
 const NavBarItem_F = styled.button`
   display: none;
   @media (min-width: 1020px) {
@@ -80,7 +79,6 @@ const ClickedNavBar = styled.div`
     }
   }
 `;
-
 const Input = styled.input`
   font-family: FontAwesome;
   background-color: rgb(32, 28, 28);
@@ -95,7 +93,6 @@ const Input = styled.input`
     color: white;
   }
 `;
-
 const ClickedNavBarButton = styled.button`
   border-bottom: 1px solid rgb(49, 49, 51);
   background: transparent;

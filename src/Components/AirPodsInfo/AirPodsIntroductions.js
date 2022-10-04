@@ -15,7 +15,6 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
 const VideoBackground = styled.video`
   object-fit: cover;
   position: absolute;
@@ -24,7 +23,6 @@ const VideoBackground = styled.video`
   height: 100%;
   width: 100%;
 `;
-
 const PlayButton = styled.button`
   position: absolute;
   background-color: transparent;
@@ -38,7 +36,6 @@ const PlayButton = styled.button`
     color: white;
   }
 `;
-
 const AirPods3rd = styled.img`
   top: -6%;
   left: calc(50% - 800px / 2);
@@ -49,28 +46,26 @@ const AirPods3rd = styled.img`
     width: 1028px;
   }
 `;
-
 const AirPods2ndLeft = styled.img`
   top: 10%;
   left: calc(42% - 255px);
-  width:255px;
+  width: 255px;
   @media (min-width: 980px) {
     top: 10%;
     left: calc(42% - 366px);
-    width:366px;
+    width: 366px;
   }
 `;
 const AirPods2ndRight = styled.img`
   top: 40%;
   left: 56%;
-  width:230px;
+  width: 230px;
   @media (min-width: 980px) {
     top: 40%;
     left: 56%;
-    width:319px;
+    width: 319px;
   }
 `;
-
 const AirPodsMax = styled.img`
   top: 25%;
   left: calc(50% - 307px / 2);
@@ -81,7 +76,6 @@ const AirPodsMax = styled.img`
     width: 470px;
   }
 `;
-
 const Content = styled.div`
   text-align: center;
   white-space: nowrap;
@@ -109,7 +103,6 @@ function AirPodsContent({
     </Content>
   );
 }
-
 function AirPodsIntroductions() {
   const [isPlay, setPlayPause] = useState(true);
   const videoRef = useRef();

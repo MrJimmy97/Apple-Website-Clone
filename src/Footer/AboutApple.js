@@ -8,6 +8,7 @@ const Container = styled.div`
   width: 95%;
   border-bottom: none;
   font-size: 14px;
+
   @media (min-width: 980px) {
     width: 980px;
     border-bottom: 2px solid rgb(218, 218, 223);
@@ -26,11 +27,11 @@ const HomeButton = styled.button`
 const DirectorySmall = styled.div`
   display: flex;
   flex-direction: column;
+
   @media (min-width: 980px) {
     display: none;
   }
 `;
-
 const DirectoryTitleSmall = styled.div`
   display: flex;
   justify-content: space-between;
@@ -47,6 +48,7 @@ const DirectoryButtonListSmall = styled.div`
   display: flex;
   flex-direction: column;
   animation: ${(props) => props.isOpened && "slideIn 0.5s forwards"};
+
   @keyframes slideIn {
     from {
       transform: translateY(-50%) scaleY(0);
@@ -72,6 +74,7 @@ const DirectoryButtonSmall = styled.button`
 const PlusButton = styled.div`
   font-size: 15px;
   ${({ rotateAnimation }) => rotateAnimation}
+
   @keyframes crossButton-to-plusButton {
     0% {
       transform: rotate(45deg);
@@ -91,6 +94,7 @@ const PlusButton = styled.div`
 `;
 const DirectoryFull = styled.div`
   display: none;
+
   @media (min-width: 980px) {
     display: flex;
     justify-content: space-between;
@@ -104,6 +108,7 @@ const DirectoryButtonFull = styled.button`
   margin-bottom: 10px;
   text-align: left;
   color: rgb(145, 142, 145);
+
   &:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -115,6 +120,7 @@ const BlueButton = styled.button`
   padding: 0;
   font-size: 10px;
   color: rgb(48, 128, 211);
+  
   &:hover {
     cursor: pointer;
     text-decoration: underline;

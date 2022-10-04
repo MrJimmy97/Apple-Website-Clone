@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components/macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowAltCircleLeft,
@@ -13,12 +13,6 @@ const FeaturesBar = styled.div`
   overflow: hidden;
   scroll-behavior: smooth;
 `;
-
-const Space = styled.div`
-  min-width: 750px;
-  color: transparent;
-`;
-
 const ScrollButtons = styled.div`
   text-align: center;
   margin-top: 10px;
@@ -31,24 +25,12 @@ const ScrollButtons = styled.div`
     margin: 10px 10px;
   }
 `;
-const ScrollLeftButton = styled.button`
-  opacity: ${(props) => props.disabled && 0.5};
-  cursor: ${(props) => (props.disabled ? "context-menu" : "pointer")};
-`;
-const ScrollRightButton = styled.button`
-  opacity: ${(props) => props.disabled && 0.5};
-  cursor: ${(props) => (props.disabled ? "context-menu" : "pointer")};
-`;
 
 function AirPodsFeatures() {
   const featuresBarRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentBoxWidth, setBoxWidth] = useState(330);
   const [maxScrollWidth, setMaxScrollWidth] = useState(4);
-
-  useEffect(() => {
-    featuresBarRef.current.scrollLeft = (currentBoxWidth + 20) * currentIndex;
-  }, [currentIndex, currentBoxWidth]);
 
   useEffect(() => {
     if (window.innerWidth < 980) {
@@ -58,7 +40,8 @@ function AirPodsFeatures() {
       setMaxScrollWidth(4);
       setBoxWidth(380);
     }
-  }, [window.innerWidth]);
+    featuresBarRef.current.scrollLeft = (currentBoxWidth + 20) * currentIndex;
+  }, [currentIndex, window.innerWidth]);
 
   return (
     <div>
@@ -66,11 +49,12 @@ function AirPodsFeatures() {
         {airPodsFeatures.map((featuredata, i) => (
           <AirPodsFeature data={featuredata} key={i} />
         ))}
-        <Space />
+        <div css=" min-width:750px;color: transparent;" />
       </FeaturesBar>
       <ScrollButtons>
-        <ScrollLeftButton
+        <button
           disabled={currentIndex <= 0}
+          css={currentIndex <= 0 ? "cursor:context-menu" : "cursor:pointer"}
           onClick={() =>
             setTimeout(
               setCurrentIndex((current) => current - 1),
@@ -79,9 +63,14 @@ function AirPodsFeatures() {
           }
         >
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
-        </ScrollLeftButton>
-        <ScrollRightButton
+        </button>
+        <button
           disabled={currentIndex === maxScrollWidth}
+          css={
+            currentIndex === maxScrollWidth
+              ? "cursor:context-menu"
+              : "cursor:pointer"
+          }
           onClick={() =>
             setTimeout(
               setCurrentIndex((current) => current + 1),
@@ -90,7 +79,7 @@ function AirPodsFeatures() {
           }
         >
           <FontAwesomeIcon icon={faArrowAltCircleRight} />
-        </ScrollRightButton>
+        </button>
       </ScrollButtons>
     </div>
   );
