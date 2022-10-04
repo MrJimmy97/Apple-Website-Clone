@@ -34,20 +34,19 @@ function AirPodsFeatures() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const onResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", onResize);
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     return () => {
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", () =>
+        setWindowWidth(window.innerWidth)
+      );
     };
   }, [setWindowWidth]);
 
   useEffect(() => {
     if (window.innerWidth < 980) {
-      console.log(window.innerWidth);
       setMaxScrollWidth(5);
       setBoxWidth(330);
     } else {
-      console.log(window.innerWidth);
       setMaxScrollWidth(4);
       setBoxWidth(380);
     }
@@ -66,12 +65,7 @@ function AirPodsFeatures() {
         <button
           disabled={currentIndex <= 0}
           css={currentIndex <= 0 ? "cursor:context-menu" : "cursor:pointer"}
-          onClick={() =>
-            setTimeout(
-              setCurrentIndex((current) => current - 1),
-              200
-            )
-          }
+          onClick={() => setCurrentIndex((current) => current - 1)}
         >
           <FontAwesomeIcon icon={faArrowAltCircleLeft} />
         </button>
@@ -82,12 +76,7 @@ function AirPodsFeatures() {
               ? "cursor:context-menu"
               : "cursor:pointer"
           }
-          onClick={() =>
-            setTimeout(
-              setCurrentIndex((current) => current + 1),
-              200
-            )
-          }
+          onClick={() => setCurrentIndex((current) => current + 1)}
         >
           <FontAwesomeIcon icon={faArrowAltCircleRight} />
         </button>
