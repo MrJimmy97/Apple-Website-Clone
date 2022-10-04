@@ -33,6 +33,10 @@ function AirPodsFeatures() {
   const [maxScrollWidth, setMaxScrollWidth] = useState(4);
 
   useEffect(() => {
+    featuresBarRef.current.scrollLeft = (currentBoxWidth + 20) * currentIndex;
+  }, [currentIndex, currentBoxWidth, ]);
+
+  useEffect(() => {
     if (window.innerWidth < 980) {
       setMaxScrollWidth(5);
       setBoxWidth(330);
@@ -40,8 +44,7 @@ function AirPodsFeatures() {
       setMaxScrollWidth(4);
       setBoxWidth(380);
     }
-    featuresBarRef.current.scrollLeft = (currentBoxWidth + 20) * currentIndex;
-  }, [currentIndex, window.innerWidth]);
+  }, [window.innerWidth]);
 
   return (
     <div>
