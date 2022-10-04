@@ -31,20 +31,28 @@ function AirPodsFeatures() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentBoxWidth, setBoxWidth] = useState(330);
   const [maxScrollWidth, setMaxScrollWidth] = useState(4);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    featuresBarRef.current.scrollLeft = (currentBoxWidth + 20) * currentIndex;
-  }, [currentIndex, currentBoxWidth, ]);
+    const onResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, [setWindowWidth]);
 
   useEffect(() => {
     if (window.innerWidth < 980) {
+      console.log(window.innerWidth);
       setMaxScrollWidth(5);
       setBoxWidth(330);
     } else {
+      console.log(window.innerWidth);
       setMaxScrollWidth(4);
       setBoxWidth(380);
     }
-  }, [window.innerWidth]);
+    featuresBarRef.current.scrollLeft = (currentBoxWidth + 20) * currentIndex;
+  }, [currentIndex, windowWidth]);
 
   return (
     <div>
