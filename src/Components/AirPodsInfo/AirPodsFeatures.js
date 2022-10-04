@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { useRef, useState, useEffect } from "react";
 import AirPodsFeature from "./AirPodsFeature";
-import airPodsFeatures from "../featuresData";
+import airPodsFeatures from "../Data/featuresData";
 
 const FeaturesBar = styled.div`
   display: flex;

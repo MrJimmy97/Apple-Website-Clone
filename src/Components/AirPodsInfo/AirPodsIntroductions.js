@@ -6,7 +6,7 @@ import {
   faCirclePlay,
   faCirclePause,
 } from "@fortawesome/free-regular-svg-icons";
-import airPodsData from "../airPodsData";
+import airPodsData from "../Data/airPodsData";
 
 const Section = styled.div`
   background: linear-gradient(white 0%, transparent 10%);

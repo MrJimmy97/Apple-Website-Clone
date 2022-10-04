@@ -14,8 +14,6 @@ const NavBar = styled.div`
     props.isOpened ? "black" : "rgba(0, 0, 0, 0.8)"};
   width: 100%;
   height: 48px;
-  position: relative;
-  z-index: 3;
   margin: 0;
   display: flex;
   justify-content: space-between;
@@ -33,22 +31,25 @@ const NavBar = styled.div`
     border: none;
     color: rgb(170, 170, 170);
     white-space: nowrap;
+
     cursor: pointer;
     :hover {
       color: rgb(211, 211, 211);
     }
   }
 `;
-const NavBarItem_F = styled.button`
+const NavBarItemFull = styled.button`
   display: none;
+
   @media (min-width: 1020px) {
     display: inline;
   }
 `;
-const NavBarItem_S = styled.button`
+const NavBarItemSmall = styled.button`
   display: inline;
   position: relative;
   z-index: 2;
+
   @media (min-width: 1020px) {
     display: none;
   }
@@ -131,7 +132,7 @@ function MainNavBar() {
   return (
     <>
       <NavBar isOpened={isOpened}>
-        <NavBarItem_S
+        <NavBarItemSmall
           onClick={() =>
             setIsOpened((current) => {
               if (current) {
@@ -149,29 +150,29 @@ function MainNavBar() {
             css={isOpened ? "font-size: 20px" : "font-size: 15px"}
             icon={isOpened ? faXmark : faBars}
           />
-        </NavBarItem_S>
-        <NavBarItem_S>
+        </NavBarItemSmall>
+        <NavBarItemSmall>
           <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
-        </NavBarItem_S>
+        </NavBarItemSmall>
         {!isOpened ? (
-          <NavBarItem_S>
+          <NavBarItemSmall>
             <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
-          </NavBarItem_S>
+          </NavBarItemSmall>
         ) : (
           <div css="width:73px" />
         )}
-        <NavBarItem_F>
+        <NavBarItemFull>
           <FontAwesomeIcon css="font-size: 15px" icon={faAppleWhole} />
-        </NavBarItem_F>
+        </NavBarItemFull>
         {navBarLink.map((data, i) => (
-          <NavBarItem_F key={i}>{data}</NavBarItem_F>
+          <NavBarItemFull key={i}>{data}</NavBarItemFull>
         ))}
-        <NavBarItem_F>
+        <NavBarItemFull>
           <FontAwesomeIcon css="font-size: 15px" icon={faMagnifyingGlass} />
-        </NavBarItem_F>
-        <NavBarItem_F>
+        </NavBarItemFull>
+        <NavBarItemFull>
           <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
-        </NavBarItem_F>
+        </NavBarItemFull>
       </NavBar>
       <ClickedNavBar isOpened={isOpened} navAnimation={navAnimation}>
         <div css="text-align:center;border-bottom:1px solid rgb(49,49,51)">

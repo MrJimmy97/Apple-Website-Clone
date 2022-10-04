@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/macro";
-import airPodsData from "../airPodsData";
+import airPodsData from "../Data/airPodsData";
 import ArrowButton from "../ReusesableComponents/ArrowButton";
 import AirPodsCompare from "./AirPodsCompare";
 
