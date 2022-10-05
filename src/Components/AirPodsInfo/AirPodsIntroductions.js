@@ -9,7 +9,7 @@ import {
 import airPodsData from "../Data/airPodsData";
 
 const Section = styled.div`
-  background: linear-gradient(white 0%, transparent 10%);
+  background: linear-gradient(white, transparent 10%);
   margin: 0;
   display: flex;
   flex-direction: column;
