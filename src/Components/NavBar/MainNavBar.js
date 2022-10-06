@@ -174,7 +174,7 @@ function MainNavBar() {
           <FontAwesomeIcon css="font-size: 15px" icon={faShoppingBag} />
         </NavBarItemFull>
       </NavBar>
-      <ClickedNavBar isOpened={isOpened} navAnimation={navAnimation}>
+      <ClickedNavBar navAnimation={navAnimation}>
         <div css="text-align:center;border-bottom:1px solid rgb(49,49,51)">
           <Input type="text" placeholder="&#xf002;   Search apple.com" />
         </div>

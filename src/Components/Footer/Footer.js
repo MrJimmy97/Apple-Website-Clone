@@ -1,4 +1,4 @@
-import AboutApple from "./AboutApple";
+import AboutApple from "./AboutApple"
 import PolicyAndSelectLanguage from "./PolicyAndSelectLanguage";
 
 function Footer() {

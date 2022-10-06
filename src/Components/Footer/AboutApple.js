@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/macro";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
-import dictionaryData from "../Components/Data/dictionaryData";
+import dictionaryData from "../Data/dictionaryData";
 
 const Container = styled.div`
   width: 95%;
