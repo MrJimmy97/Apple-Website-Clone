@@ -43,7 +43,7 @@ function AirPodsFeatures() {
   }, [setWindowWidth]);
 
   useEffect(() => {
-    if (window.innerWidth < 980) {
+    if (windowWidth < 980) {
       setMaxScrollWidth(5);
       setBoxWidth(330);
     } else {
