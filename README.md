@@ -1,6 +1,6 @@
 # Apple Website Clone (AirPods)
 
-This project was constructed with React.js and styled-components individually. Also, it used some hooks, which are useState, useRef and useEffect. It was cloned from https://www.apple.com/hk/en/airpods/. The project of images, icons and video came from the original website and FontAwesome. 
+This project was constructed with React.js and styled-components css individually. It was cloned from https://www.apple.com/hk/en/airpods/. The project of images, icons and video came from the original website and FontAwesome. 
 
 ## Available Scripts
 
