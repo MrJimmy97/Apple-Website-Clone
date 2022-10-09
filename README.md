@@ -1,6 +1,6 @@
 # Apple Website Clone (AirPods)
 
-This project was constructed with React.js and styled-components css individually. It was cloned from https://www.apple.com/hk/en/airpods/. The project of images, icons and video came from the original website and FontAwesome. The live demo can be found in https://6341cc9aead9df78884a566e--euphonious-tartufo-a7be73.netlify.app/
+This project was constructed with React.js and styled-components css individually. It was cloned from https://www.apple.com/hk/en/airpods/. There are two supported ranges of width, which are 740px to 980px and 981px to larger size. The project of images, icons and video came from the original website and FontAwesome. The live demo can be found at https://6341cc9aead9df78884a566e--euphonious-tartufo-a7be73.netlify.app/
 
 ## Available Scripts
 
