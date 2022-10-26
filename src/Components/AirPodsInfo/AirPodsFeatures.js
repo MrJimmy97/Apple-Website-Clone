@@ -51,7 +51,7 @@ function AirPodsFeatures() {
       setBoxWidth(380);
     }
     featuresBarRef.current.scrollLeft = (currentBoxWidth + 20) * currentIndex;
-  }, [currentIndex, windowWidth]);
+  }, [currentIndex, windowWidth, currentBoxWidth]);
 
   return (
     <div>
